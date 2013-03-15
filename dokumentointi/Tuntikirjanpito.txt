@@ -1,1 +1,5 @@
-Tuntikirjanpito12.3.2013  1.5h  Projetiaiheen kirjoittaminen ja githubin kanssa paiseileminen
+Tuntikirjanpito12.3.2013  1.5h  Projetiaiheen kirjoittaminen ja githubin kanssa paiseileminen
+
+13.3 ~1h  Koodin rakenteen miettimistä (erityisesti miten palikoiden asento- ja 	paikkaryhmä toteutetaan)
+
+14.3. ~2h oliohjelmoinnin kertausta ja luokkien Palikka, Reunapalikka ja Kulmapalikka luominen15.3. ~3.5h Sähläystä luokkien kanssa. Junit testeihin tutustumista ja muutaman testin tekeminen. Aivotyötä koskien Rubikin kuutio -luokan toteuttamista.
