@@ -18,7 +18,7 @@ import rubik_oht.Kulmapalikka;
  */
 public class KulmapalikkaIlmanVarejaTest {
     
-    Kulmapalikka palikka;
+    Kulmapalikka kulmaPalikka;
     
     public KulmapalikkaIlmanVarejaTest() {
     }
@@ -33,7 +33,7 @@ public class KulmapalikkaIlmanVarejaTest {
     
     @Before
     public void setUp() {
-        palikka =new Kulmapalikka("K2");
+        kulmaPalikka =new Kulmapalikka("K2");
     }
     
     @After
@@ -44,12 +44,12 @@ public class KulmapalikkaIlmanVarejaTest {
     //
      @Test
      public void AlussaEiVareja() {
-        assertEquals(null ,palikka.haeVari(1));
-        assertEquals(null ,palikka.haeVari(2));
-        assertEquals(null ,palikka.haeVari(3));
+        assertEquals(null ,kulmaPalikka.haeVari(1));
+        assertEquals(null ,kulmaPalikka.haeVari(2));
+        assertEquals(null ,kulmaPalikka.haeVari(3));
      }
      @Test
      public void NimiOnOikein(){
-         
+         assertEquals("K2", kulmaPalikka.haeNimi());
      } 
 }
