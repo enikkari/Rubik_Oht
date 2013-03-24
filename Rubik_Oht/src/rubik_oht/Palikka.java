@@ -43,13 +43,8 @@ public class Palikka {
     
     @Override
     public String toString(){
-//        String tulostus;
-//        for(int i=0; i<=vari.length; i++){
-//            tulostus=+vari[]; 
-//        }
-        
         return vari.toString();
-        
     }
+ 
     
 }

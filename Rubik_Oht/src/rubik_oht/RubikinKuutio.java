@@ -1,20 +1,13 @@
 
 package rubik_oht;
 
-public class RubikinKuutio {
-    //RubikinKuutio -luokka säilyttää Tiedon siihen kuuluvien Palikoiden paikat 
-    //ja asennot (eli palikoiden värien paikat).
+public class RubikinKuutio extends Kuutio{
+    //RubikinKuutio on 3x3 Kuutio
     
     public RubikinKuutio(){
-        
+        super(3);
     }
     
-    public static void lisaaPalikka(){
-        //tähän tehdään toiminnallisuus, jolla pailkoita voidaan lisätä kuutioon
-        //tiettyyn asentoon
-    }
-    public String TulostaKuutio(){
-        //tähän tehdään mahdollisuus tulostaa miltä kuutio näyttää
-        return "";
-    }
+    
+    
 }

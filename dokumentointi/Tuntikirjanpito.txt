@@ -5,3 +5,6 @@ Tuntikirjanpito12.3.2013  1.5h  Projetiaiheen kirjoittaminen ja githubin kanss
 14.3. ~2h oliohjelmoinnin kertausta ja luokkien Palikka, Reunapalikka ja Kulmapalikka luominen15.3. ~3.5h Sähläystä luokkien kanssa. Junit testeihin tutustumista ja muutaman testin tekeminen. Aivotyötä koskien Rubikin kuutio -luokan toteuttamista.
 
 16.3. ~1h Vihdoin fiksusti palikka-luokkien suhteiden toteuttaminen. Lisää testejä
+
+21.3. 2.5h Kuutio luokan valmistelemista. Pähkäilyä millainen taulukkomuoto olisi sopiva palikoiden ja niiden asentojen säilyttämiseen.
+Luotiin avuksi luokka PalikkaJaAsento.
