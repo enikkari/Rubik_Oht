@@ -1,5 +1,5 @@
 
-package rubik_oht;
+package rubik_oht.palikat;
 
 public class Kulmapalikka extends Palikka {
     //Kulmapalikka on rubikin kuution kulmassa oleva palikka.
@@ -16,7 +16,6 @@ public class Kulmapalikka extends Palikka {
         this.asetavari(1, vari1);
         this.asetavari(2, vari2);
         this.asetavari(3, vari3);
-
     }
  
 }

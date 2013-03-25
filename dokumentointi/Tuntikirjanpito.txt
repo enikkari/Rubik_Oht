@@ -8,3 +8,7 @@ Tuntikirjanpito12.3.2013  1.5h  Projetiaiheen kirjoittaminen ja githubin kanss
 
 21.3. 2.5h Kuutio luokan valmistelemista. Pähkäilyä millainen taulukkomuoto olisi sopiva palikoiden ja niiden asentojen säilyttämiseen.
 Luotiin avuksi luokka PalikkaJaAsento.
+
+24.3. ~3h Kuutio ja RubikinKuutio -luokkien rakentamista
+
+25.3. ~3.5 PalikkaJaAstento- luokan korjaamista. Kuution koorinaattien saamista mukaan koodiin. Taulukon tulkitseminen sivuiksi saatu aikaiseksi. Lisää testejä.

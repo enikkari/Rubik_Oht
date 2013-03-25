@@ -1,5 +1,5 @@
 
-package rubik_oht;
+package rubik_oht.palikat;
 
 public class Palikka {
     //Palikka kuvaa palikkaa, joista Rubikin kuutio muodostuu.

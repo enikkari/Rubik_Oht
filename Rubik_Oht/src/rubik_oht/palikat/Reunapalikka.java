@@ -1,5 +1,7 @@
 
-package rubik_oht;
+package rubik_oht.palikat;
+
+import rubik_oht.palikat.Palikka;
 
 public class Reunapalikka extends Palikka{
     //Reunapalikka on rubikin kuution reunalla, kahden kulmapalikan välissä,
