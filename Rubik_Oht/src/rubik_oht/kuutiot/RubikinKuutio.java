@@ -6,7 +6,10 @@ import rubik_oht.palikat.Reunapalikka;
 import rubik_oht.palikat.Kulmapalikka;
 
 public class RubikinKuutio{
-    //RubikinKuutio on 3x3 Kuutio
+    //Kuutiolla on kuusi sivua, joiden nimet ovat yla, vasen, etu, oikea, ala ja taka
+    
+    //Taulukkojen avulla kuvataan kuution 'koordinaatteja', jotka pysyvät paikallaan.
+    //Kuutiota väänneltäessä palikat vaihtavat paikkoja
     
     private PalikkaJaAsento[] kulmapalikoidenPaikat;//Taulukossa on (numeroiduilla) paikoilla tieto mikä palikka paikalla on ja
                                                    //(numeroitu) lista sen sivuista. Apuna käytetään apuluokkaa 'PalikkaJaAsento'
@@ -14,7 +17,7 @@ public class RubikinKuutio{
     
     public String[][][] taulukonTulkintaKuutionSivuiksi;
     
-    private String yla;
+    private String yla; //sivujen värit
     private String vasen;
     private String etu;
     private String oikea;
@@ -195,6 +198,15 @@ public class RubikinKuutio{
            sivuRakentaja.append('\n');
         }
         return sivuRakentaja.toString();
+    }
+    
+    public String tulostaKuutio(){
+        StringBuilder kuutionRakentaja = new StringBuilder();
+        for(int i = 0; i<6; i++){
+            kuutionRakentaja.append(tulostaSivu(i));
+            kuutionRakentaja.append('\n');
+        }
+        return kuutionRakentaja.toString();
     }
     
     public String[][] haeTaulukonTulkintaSivuiksi(int mikaSivu){
