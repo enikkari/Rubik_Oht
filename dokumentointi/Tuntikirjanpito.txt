@@ -11,4 +11,7 @@ Luotiin avuksi luokka PalikkaJaAsento.
 
 24.3. ~3h Kuutio ja RubikinKuutio -luokkien rakentamista
 
-25.3. ~3.5 PalikkaJaAstento- luokan korjaamista. Kuution koorinaattien saamista mukaan koodiin. Taulukon tulkitseminen sivuiksi saatu aikaiseksi. Lisää testejä.
+25.3. ~3.5 PalikkaJaAsento- luokan korjaamista. Kuution koorinaattien saamista mukaan koodiin. Taulukon tulkitseminen sivuiksi saatu aikaiseksi. Lisää testejä.
+
+3.4. ~6h Piirsin Kuution koordinaattipaperin uudestaan niin että Palikkojen indeksöinti alkaakin nollasta. Tein palikoita liikuttelevat metodit ja tekstikäyttöliittymää, jolla kuutiota voi pyöritellä alustavasti. PalikkaJaAsento- luokan korjaamista vielä vähän. Siistin koodia.
+Koodin logiikka on nyt suunnilleen käyttöliittymää vailla valmis

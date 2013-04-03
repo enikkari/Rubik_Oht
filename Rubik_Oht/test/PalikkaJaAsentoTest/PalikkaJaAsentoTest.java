@@ -40,23 +40,19 @@ public class PalikkaJaAsentoTest {
     
     @Test 
     public void OnkoOikeaPalikka(){
-        assertEquals(this.kulmapalikka, sailo.haePalikka());
+        assertEquals("Väärä Palikka",this.kulmapalikka, sailo.haePalikka());
     }
     
     @Test
     public void onkoListaAlussaOikein(){
         int[] asento = {1,2,3};
-        assertEquals(asento[0], sailo.haeAsento()[0]);
-        assertEquals(asento[1], sailo.haeAsento()[1]);
-        assertEquals(asento[2], sailo.haeAsento()[2]);
+        assertArrayEquals("Lista ei ole alussa {1,2,3}",asento, sailo.haeAsento());
         
     }
     
     @Test
-    public void palauttaakoVarit() {
-        assertEquals("a", sailo.haeMikaVariPaikallaOn(1));
-        assertEquals("b", sailo.haeMikaVariPaikallaOn(2));
-        assertEquals("c", sailo.haeMikaVariPaikallaOn(3));
+    public void palauttaakoVaritAluss() {
+        assertArrayEquals("Värit ovat alussa väärin",new String[] {sailo.haeMikaVariPaikallaOn(1),sailo.haeMikaVariPaikallaOn(2),sailo.haeMikaVariPaikallaOn(3)}, new String[] {"a","b","c"});
     }
     
     @Test
@@ -64,18 +60,24 @@ public class PalikkaJaAsentoTest {
         int[] uusiAsento = {2,3,1};
         this.sailo.muutaAsento(uusiAsento);
         
-        assertEquals(uusiAsento[0], sailo.haeAsento()[0]);
-        assertEquals(uusiAsento[1], sailo.haeAsento()[1]);
-        assertEquals(uusiAsento[2], sailo.haeAsento()[2]);
+        assertArrayEquals("Asento ei muutu oikein kerran muutettaessa",new int[] {2,3,1}, sailo.haeAsento());
     }
     
     @Test
-    public void PalauttaakoVaritOikeinMuutoksenJalkeen(){
-        int[] uusiAsento = {2,3,1};
-        this.sailo.muutaAsento(uusiAsento);
+    public void voikoPaikkojaMuuttaaMontaKertaa(){
+        this.sailo.muutaAsento(new int[] {3,2,1});
+        this.sailo.muutaAsento(new int[] {3,2,1});
+        this.sailo.muutaAsento(new int[] {2,1,3});
         
-        assertEquals("b", sailo.haeMikaVariPaikallaOn(1));
-        assertEquals("c", sailo.haeMikaVariPaikallaOn(2));
-        assertEquals("a", sailo.haeMikaVariPaikallaOn(3));
+        assertArrayEquals("Asento ei muutu oikein useamman kerran muutettaessa", new int[] {2,1,3}, sailo.haeAsento());
+    }
+    
+    
+    @Test
+    public void PalauttaakoVaritOikeinMuutoksenJalkeen(){
+        
+        this.sailo.muutaAsento(new int[] {2,3,1});
+        this.sailo.muutaAsento(new int[]{1,3,2});
+        assertArrayEquals("Värit muutoksen jälkeen väärin",new String[] {sailo.haeMikaVariPaikallaOn(1),sailo.haeMikaVariPaikallaOn(2),sailo.haeMikaVariPaikallaOn(3)}, new String[] {"b","a","c"});
     }
 }

@@ -3,22 +3,24 @@ package rubik_oht.kuutiot;
 
 import rubik_oht.apuluokat.PalikkaJaAsento;
 import java.util.*;
-
+/**Huom!!! Tämä luokka toteutetaan (loppuun) myöhemmin koodia laajennettaessa
+    *RubikinKuution tekeminen Kuution aliluokkana ei pitäisi olla liian vaikeaa,
+    *mutta ajankäytöllisistä syistä jätetään se myöhemmäksi.
+    */
+    
+    /**Kuutio on olio, joka sisältää Palikka-olentoja ja tiedot niiden sijainneista ja 
+    *asennoista eli palikoiden sivujen sijainneista.
+    *Sen ilmentymiä ovat erikokoiset Rubikin kuutiot.
+    *Jätämme osan muiden kuin 3x3x3-kuutioiden toiminnallisuudesta myöhemmin toteutettavaksi
+    
+    *Kuutiolla on kuusi sivua, joiden nimet ovat yla, vasen, etu, oikea, ala ja taka
+    */
+    
+    /**Taulukkojen avulla kuvataan kuution 'koordinaatteja', jotka pysyvät paikallaan.
+    *Kuutiota väänneltäessä palikat vaihtavat paikkoja
+    */
 public class Kuutio {
-    //Huom!!! Tämä luokka toteutetaan (loppuun) myöhemmin koodia laajennettaessa
-    //RubikinKuution tekeminen Kuution aliluokkana ei pitäisi olla liian vaikeaa,
-    //mutta ajankäytöllisistä syistä jätetään se myöhemmäksi.
     
-    
-    //Kuutio on olio, joka sisältää Palikka-olentoja ja tiedot niiden sijainneista ja 
-    //asennoista eli palikoiden sivujen sijainneista.
-    //Sen ilmentymiä ovat erikokoiset Rubikin kuutiot.
-    //Jätämme osan muiden kuin 3x3x3-kuutioiden toiminnallisuudesta myöhemmin toteutettavaksi
-    
-    //Kuutiolla on kuusi sivua, joiden nimet ovat yla, vasen, etu, oikea, ala ja taka
-    
-    //Taulukkojen avulla kuvataan kuution 'koordinaatteja', jotka pysyvät paikallaan.
-    //Kuutiota väänneltäessä palikat vaihtavat paikkoja
     private int kuutionKoko;
     public PalikkaJaAsento[] kulmapalikoidenPaikat;//Taulukossa on (numeroiduilla) paikoilla tieto mikä palikka paikalla on ja
                                                    //(numeroitu) lista sen sivuista. Apuna käytetään apuluokkaa 'PalikkaJaAsento'
@@ -63,21 +65,21 @@ public class Kuutio {
         }
     }
 
-    
+    /**metodi täyttää kuution Palikoilla ja asettaa sivujen väreiksi annetut arvot
+        */
     public void taytaKuutio(String yla, String vasen, String etu, String oikea, String ala, String taka){
-        //metodi täyttää kuution Palikoilla ja asettaa sivujen väreiksi annetut arvot
         
         //jätetään toteutus suuremmille kuutioille myöhemmäksi
     }
-    
+    /*Tämä metodi tulkitsee palikoiden paikat ja asennot taulukoista selvemmiksi
+        *koordinaateiksi taulukonTulkintaKuutionSivuiksi -taulukkoon
+        
+        *tämä metodi täytyy suorittaa aina siirron jälkeen, muuten 'taulukonTulkintaKuutionSivuiksi'
+        *ei ole ajan tasalla
+        
+        * jätetään suurempien kuutioiden logiikka myöhemmin toteutettavaksi
+        */
     public void paivitaTaulukonTulkintaKuutionSivuiksi(){
-        //Tämä metodi tulkitsee palikoiden paikat ja asennot taulukoista selvemmiksi
-        //koordinaateiksi taulukonTulkintaKuutionSivuiksi -taulukkoon
-        
-        //tämä metodi täytyy suorittaa aina siirron jälkeen, muuten 'taulukonTulkintaKuutionSivuiksi'
-        //ei ole ajan tasalla
-        
-        // jätetään suurempien kuutioiden logiikka myöhemmin toteutettavaksi
         
     }
     
