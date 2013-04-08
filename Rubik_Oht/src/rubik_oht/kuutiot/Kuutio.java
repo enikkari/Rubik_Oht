@@ -19,6 +19,11 @@ import java.util.*;
     /**Taulukkojen avulla kuvataan kuution 'koordinaatteja', jotka pysyvät paikallaan.
     *Kuutiota väänneltäessä palikat vaihtavat paikkoja
     */
+
+/**
+ *
+ * @author eevanikkari
+ */
 public class Kuutio {
     
     private int kuutionKoko;

@@ -42,14 +42,21 @@ public class KulmapalikkaIlmanVarejaTest {
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
-     @Test
-     public void AlussaEiVareja() {
-        assertEquals(null ,kulmaPalikka.haeVari(1));
-        assertEquals(null ,kulmaPalikka.haeVari(2));
-        assertEquals(null ,kulmaPalikka.haeVari(3));
+    @Test
+     public void EiVoidaHakeaVariaJotaEiOle(){
+        assertEquals( null ,kulmaPalikka.haeVari(3));
      }
+      
+    
      @Test
      public void NimiOnOikein(){
          assertEquals("K2", kulmaPalikka.haeNimi());
      } 
+     
+     @Test
+     public void sivuilleVoidaanAsettaaVariJaHakeaSe(){
+     this.kulmaPalikka.asetavari(2, "#FFFFFF");
+         assertEquals("#FFFFFF", kulmaPalikka.haeVari(2));
+     } 
+     
 }

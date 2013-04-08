@@ -34,7 +34,7 @@ public class rubikinKuutioTulostusTest {
         
         for(int i = 0; i<3; i++){
             for(int a = 0; a<3; a++){
-                assertEquals("@", yla[i][a]);
+                assertEquals("Yla-sivussa on alussa vaaria vareja. Taulukon tulkinta saattaa olla väärä.","@", yla[i][a]);
             }
         }
     }
@@ -46,7 +46,7 @@ public class rubikinKuutioTulostusTest {
         
         for(int i = 0; i<3; i++){
             for(int a = 0; a<3; a++){
-                assertEquals("#", vasen[i][a]);
+                assertEquals("Vasen-sivussa on alussa vaaria vareja. Taulukon tulkinta saattaa olla väärä.","#", vasen[i][a]);
             }
         }
     }
@@ -57,7 +57,7 @@ public class rubikinKuutioTulostusTest {
         
         for(int i = 0; i<3; i++){
             for(int a = 0; a<3; a++){
-                assertEquals("€", etu[i][a]);
+                assertEquals("Etu-sivussa on alussa vaaria vareja. Taulukon tulkinta saattaa olla väärä.","€", etu[i][a]);
             }
         }
     }
@@ -68,7 +68,7 @@ public class rubikinKuutioTulostusTest {
         
         for(int i = 0; i<3; i++){
             for(int a = 0; a<3; a++){
-                assertEquals("%", oikea[i][a]);
+                assertEquals("Oikea-sivussa on alussa vaaria vareja. Taulukon tulkinta saattaa olla väärä.","%", oikea[i][a]);
             }
         }
     }
@@ -78,7 +78,7 @@ public class rubikinKuutioTulostusTest {
         
         for(int i = 0; i<3; i++){
             for(int a = 0; a<3; a++){
-                assertEquals("&", ala[i][a]);
+                assertEquals("Ala-sivussa on alussa vaaria vareja. Taulukon tulkinta saattaa olla väärä.","&", ala[i][a]);
             }
         }
     }
@@ -88,7 +88,7 @@ public class rubikinKuutioTulostusTest {
         
         for(int i = 0; i<3; i++){
             for(int a = 0; a<3; a++){
-                assertEquals("?", taka[i][a]);
+                assertEquals("Taka-sivussa on alussa vaaria vareja. Taulukon tulkinta saattaa olla väärä.","?", taka[i][a]);
             }
         }
     }

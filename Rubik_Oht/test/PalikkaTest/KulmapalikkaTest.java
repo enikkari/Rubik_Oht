@@ -44,18 +44,22 @@ public class KulmapalikkaTest {
         kulmaPalikka.asetavari(2, "#FF0000"); 
         kulmaPalikka.asetavari(3, "#0000FF"); 
         
-        assertEquals("#FFFFFF" ,kulmaPalikka.haeVari(1));
-        assertEquals("#FF0000" ,kulmaPalikka.haeVari(2));
-        assertEquals("#0000FF" ,kulmaPalikka.haeVari(3));
+        assertEquals(new String[] {"#FFFFFF","#FF0000","#0000FF"},new String[] {kulmaPalikka.haeVari(1),kulmaPalikka.haeVari(2),kulmaPalikka.haeVari(3)});
+      
      }
      
      @Test
      public void EiVoidaHakeaVariaJotaEiOle(){
-        assertEquals( null ,kulmaPalikka.haeVari(4));
+        assertEquals("voidaan hakea väri, jota ei pitäisi olla", null ,kulmaPalikka.haeVari(4));
+     }
+     
+     @Test
+     public void EiVoidaHakeaNegatiivistaVaria(){
+        assertEquals("voidaan hakea väri, jota ei pitäisi olla", null ,kulmaPalikka.haeVari(-3));
      }
      
      @Test
      public void OnhanKolmeSivua(){
-         assertEquals(3, kulmaPalikka.kuinkaMontaSivua());
+         assertEquals("Kulmapalikalla on väärä määrä sivuja",3, kulmaPalikka.kuinkaMontaSivua());
      }
 }

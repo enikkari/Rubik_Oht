@@ -1,10 +1,17 @@
 
 package rubik_oht.palikat;
+/**
+ *
+ * @author eevanikkari
+ */
 
+    /**Kulmapalikka on rubikin kuution kulmassa oleva palikka.
+    *Siinä on kolme sivua ja siis kolme eri väriä.
+    *Rubikin kuutiossa on yhteensä 8 kulmapalikkaa
+    */
+    
 public class Kulmapalikka extends Palikka {
-    //Kulmapalikka on rubikin kuution kulmassa oleva palikka.
-    //Siinä on kolme sivua ja siis kolme eri väriä.
-    //Rubikin kuutiossa on yhteensä 8 kulmapalikkaa
+    
     
     public Kulmapalikka(String nimi){
         super(nimi, 3);

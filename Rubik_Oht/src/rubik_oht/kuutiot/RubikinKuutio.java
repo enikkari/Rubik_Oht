@@ -9,6 +9,11 @@ import rubik_oht.palikat.Kulmapalikka;
     *Taulukkojen avulla kuvataan kuution 'koordinaatteja', jotka pysyvät paikallaan.
     *Kuutiota väänneltäessä palikat vaihtavat paikkoja
     */ 
+
+/**
+ *
+ * @author eevanikkari
+ */
 public class RubikinKuutio{
     
     private PalikkaJaAsento[] kulmapalikoidenPaikat;//Taulukossa on (numeroiduilla) paikoilla tieto mikä palikka paikalla on ja
@@ -59,7 +64,7 @@ public class RubikinKuutio{
 
     /**Luodaan palikat oikean värisinä niin että kuutio on alussa ratkaistuna
              */ 
-    public void taytaKuutio(){
+    private void taytaKuutio(){
             this.luoKulmapalikkaJaAsetaSePaikalleAsentoon("K0",0, taka, yla, vasen);
             this.luoKulmapalikkaJaAsetaSePaikalleAsentoon("K1",1, taka, oikea, yla);
             this.luoKulmapalikkaJaAsetaSePaikalleAsentoon("K2",2, etu, vasen, yla);
@@ -92,7 +97,7 @@ public class RubikinKuutio{
         *Taulukoista haetaan tiedot toiminnolla
         *this.mikaTaulukko[PalikanNumero-1](varinNumero);
         */
-    public void paivitaTaulukonTulkintaKuutionSivuiksi(){
+    private void paivitaTaulukonTulkintaKuutionSivuiksi(){
         this.paivitaYla();
         this.paivitaVasen();
         this.paivitaEtu();
@@ -137,7 +142,9 @@ public class RubikinKuutio{
        
        this.paivitaTaulukonTulkintaKuutionSivuiksi();
     }
-    
+    /**
+     * metodi kääntää 'vasen'-sivua myötäpäivään. Se muuttaa sekä palikoiden paikkoja että asentoja
+     */
     public void kaannaVasen(){
         this.vaihdaKulmapalikkojenPaikat(0,2,5,4);
         this.vaihdaReunapalikoidenPaikat(1,5,8,4);
@@ -151,7 +158,9 @@ public class RubikinKuutio{
        
        this.paivitaTaulukonTulkintaKuutionSivuiksi();
     }
-    
+    /**
+     * metodi kääntää 'oikea'-sivua myötäpäivään. Se muuttaa sekä palikoiden paikkoja että asentoja
+     */
     public void kaannaOikea(){
         this.vaihdaKulmapalikkojenPaikat(3,1,7,6);
         this.vaihdaReunapalikoidenPaikat(2,7,10,6);
@@ -165,6 +174,9 @@ public class RubikinKuutio{
        
        this.paivitaTaulukonTulkintaKuutionSivuiksi();
     }
+    /**
+     * metodi kääntää 'ala'-sivua myötäpäivään. Se muuttaa sekä palikoiden paikkoja että asentoja
+     */
     public void kaannaAla(){
         this.vaihdaKulmapalikkojenPaikat(5,6,7,4);
         this.vaihdaReunapalikoidenPaikat(9,10,11,8);
@@ -180,6 +192,39 @@ public class RubikinKuutio{
        this.kaannaReunapalikkaa(8);
        
        this.paivitaTaulukonTulkintaKuutionSivuiksi();
+    }
+    /**
+     * Metodi kääntää haluttua sivua haluttuun suuntaan
+     * @param myotaVaiVasta arvo 0 kääntää sivua myötäpäivään ja arvo 1 vastapäivään
+     * @param mikaSivu mitä sivua halutaan kääntää
+     * (Vastapäivään kääntäminen on sama, kuin kääntäisi sivua kolme kertaa myötäpäivään)
+     */
+    
+    public void kaannaMyotaTaiVastaPaivaan(int myotaVaiVasta, int mikaSivu){
+        if(myotaVaiVasta==0){
+            this.kaannaSivu(mikaSivu);
+        }else if(myotaVaiVasta==1){
+            this.kaannaSivu(mikaSivu);
+            this.kaannaSivu(mikaSivu);
+            this.kaannaSivu(mikaSivu);
+        }
+    }
+    private void kaannaSivu(int mikaSivu){
+        if(mikaSivu==0){
+            this.kaannaYla();
+        }else if(mikaSivu==1){
+            this.kaannaVasen();
+        }else if(mikaSivu==2){
+            this.kaannaEtu();
+        }else if(mikaSivu==3){
+            this.kaannaOikea();
+        }else if(mikaSivu==4){
+            this.kaannaAla();
+        }else if(mikaSivu==5){
+            this.kaannaTaka();
+        }else{
+            
+        }
     }
     
     /**
@@ -223,6 +268,14 @@ public class RubikinKuutio{
     }
     private void luoReunapalikkaJaAsetaSePaikalleAsentoon(String PalikanNimi,int paikka,String sivu1vari,String sivu2vari){
         this.reunapalikoidenPaikat[paikka]= new PalikkaJaAsento(new Reunapalikka(PalikanNimi, sivu1vari, sivu2vari));
+    }
+    /**
+     * Palauttaa RubikinKuution halutun sivun alkuperäisen värin
+     */
+    public String mikaVariSivullaOn(int mikaSivu){
+        String[] sivujenVarit = new String[] {yla, vasen, etu, oikea, ala, taka};
+        return sivujenVarit[mikaSivu];
+        
     }
     
     private void paivitaYla(){

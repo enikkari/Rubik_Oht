@@ -6,6 +6,11 @@ import rubik_oht.palikat.Palikka;
      * PalikkaJaAsento on apuluokka, jonka avulla saadaan sopivanlaisia taulukko-
      * olentoja Kuutioihin. Se säilöö Palikan ja tiedon sen asennosta eli sivujen järjestyksestä.
      */
+
+/**
+ *
+ * @author eevanikkari
+ */
 public class PalikkaJaAsento {
     
     private Palikka palikka;

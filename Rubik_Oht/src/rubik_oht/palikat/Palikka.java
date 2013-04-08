@@ -1,12 +1,13 @@
 
 package rubik_oht.palikat;
-
-public class Palikka {
-    //Palikka kuvaa palikkaa, joista Rubikin kuutio muodostuu.
-    //Tavallisessa Rubikin kuutiossa on reuna- ja kulmapalikoita
+    /**Palikka-luokka kuvaa palikkaa, joista Rubikin kuutio muodostuu.
+    *Tavallisessa Rubikin kuutiossa on reuna- ja kulmapalikoita
     
-    //"Keskipalikoita" ei ole tavallisessa rubikin kuutiossa (3x3-kuutiossa), 
-    //sillä keskellä olevat palikat pysyvät koko ajan toisiinsa nähden paikoillaan.
+    *"Keskipalikoita" ei ole tavallisessa rubikin kuutiossa (3x3-kuutiossa), 
+    *sillä keskellä olevat palikat pysyvät koko ajan toisiinsa nähden paikoillaan.
+    */
+public class Palikka {
+
     
     private String Nimi;
     private String[] vari;//Tähän taulukko sisältää palikan sivujen värit.
@@ -16,14 +17,19 @@ public class Palikka {
         this.Nimi=Nimi;
         this.vari= new String[KuinkaMontaSivuaPalikassaOn];
     }
-    
+    /**
+     * Metodilla voidaan asettaa palikan tietylle sivulle tietty väri
+     * Sivujen indeksöinti alkaa ykkösestä
+     */
     public void asetavari(int monesVari, String Vari){
         if(1<=monesVari && monesVari<=vari.length){
         this.vari[monesVari-1] = Vari;              //Taulukon indeksöinti alkaa 0:sta, joten
     }                                               //n:ännes sivu on taulukossa
     }                                               //paikalla n-1
-    
-    public String haeVari(int monesVari){ //Palauttaa halutun sivun värin
+    /**Palauttaa halutun sivun värin
+     * Sivujen indeksöinti alkaa ykkösestä
+     */
+    public String haeVari(int monesVari){ 
         if(1<=monesVari && monesVari<=vari.length){
         return this.vari[monesVari-1];
         }
@@ -32,18 +38,26 @@ public class Palikka {
         }
     }
     
-    
+    /**Palauttaa Palikalle annetun nimen
+     */
     public String haeNimi(){
         return this.Nimi;
     }
-    
-    public int kuinkaMontaSivua(){ //Metodilla voidaan selvittää millainen palikka on kyseessä
-        return vari.length;         //eli kuinka monta sivua sillä on
+    /**Metodilla voidaan selvittää millainen palikka on kyseessä
+    *eli kuinka monta sivua sillä on
+    */
+    public int kuinkaMontaSivua(){ 
+        return vari.length;         
     }
-    
+    /**Palauttaa Palikan sivut merkkijonona
+     */
     @Override
     public String toString(){
-        return vari.toString();
+        String palikanSivut = "";
+        for(int i = 0; i<this.vari.length; i++){
+            palikanSivut = palikanSivut + vari[i]; 
+        }
+        return palikanSivut;
     }
  
     
