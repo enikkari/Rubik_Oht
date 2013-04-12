@@ -34,14 +34,6 @@ public class NappaimistonKuuntelija implements KeyListener {
             kuutio.kaannaTaka();
         }
         
-        else if(e.getKeyCode()== KeyEvent.ALT_DOWN_MASK){
-            if (e.getKeyCode() == KeyEvent.VK_Y || e.getKeyCode() == KeyEvent.VK_0){
-            kuutio.kaannaYla();
-            kuutio.kaannaYla();
-            kuutio.kaannaYla();
-        } 
-        }
-        
         component.repaint();
     }
 
