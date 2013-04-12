@@ -10,7 +10,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import rubik_oht.palikat.Kulmapalikka;
+import rubik_oht.palikat.KulmaPalikka;
 
 /**
  *
@@ -18,12 +18,12 @@ import rubik_oht.palikat.Kulmapalikka;
  */
 public class KulmapalikkaTest {
     
-    Kulmapalikka kulmaPalikka;
+    KulmaPalikka kulmaPalikka;
    
     
     @Before
     public void setUp() {
-         kulmaPalikka = new Kulmapalikka("K1", "@","%","&");
+         kulmaPalikka = new KulmaPalikka("K1", "@","%","&");
     }
     
     @After

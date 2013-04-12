@@ -10,18 +10,18 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import rubik_oht.palikat.Reunapalikka;
+import rubik_oht.palikat.ReunaPalikka;
 
 /**
  *
  * @author eevanikkari
  */
 public class ReunaPalikkaTest {
-   Reunapalikka reunapalikka;
+   ReunaPalikka reunapalikka;
    
     @Before
     public void setUp() {
-        reunapalikka = new Reunapalikka("R1","","");
+        reunapalikka = new ReunaPalikka("R1","","");
     }
     
     @After

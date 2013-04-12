@@ -10,15 +10,15 @@ package rubik_oht.palikat;
     *Rubikin kuutiossa on yhteensä 8 kulmapalikkaa
     */
     
-public class Kulmapalikka extends Palikka {
+public class KulmaPalikka extends Palikka {
     
     
-    public Kulmapalikka(String nimi){
+    public KulmaPalikka(String nimi){
         super(nimi, 3);
         
     }
     
-    public Kulmapalikka(String nimi, String vari1, String vari2, String vari3){
+    public KulmaPalikka(String nimi, String vari1, String vari2, String vari3){
         super(nimi, 3);
         this.asetavari(1, vari1);
         this.asetavari(2, vari2);

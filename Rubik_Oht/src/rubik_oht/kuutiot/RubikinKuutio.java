@@ -4,8 +4,8 @@ package rubik_oht.kuutiot;
 import java.awt.Color;
 import java.io.IOException;
 import rubik_oht.apuluokat.PalikkaJaAsento;
-import rubik_oht.palikat.Reunapalikka;
-import rubik_oht.palikat.Kulmapalikka;
+import rubik_oht.palikat.ReunaPalikka;
+import rubik_oht.palikat.KulmaPalikka;
 /**Kuutiolla on kuusi sivua, joiden nimet ovat yla, vasen, etu, oikea, ala ja taka
     
     *Taulukkojen avulla kuvataan kuution 'koordinaatteja', jotka pysyvät paikallaan.
@@ -18,9 +18,9 @@ import rubik_oht.palikat.Kulmapalikka;
  */
 public class RubikinKuutio{
     
-    private PalikkaJaAsento[] kulmapalikoidenPaikat;//Taulukossa on (numeroiduilla) paikoilla tieto mikä palikka paikalla on ja
+    private PalikkaJaAsento[] kulmaPalikoidenPaikat;//Taulukossa on (numeroiduilla) paikoilla tieto mikä palikka paikalla on ja
                                                    //(numeroitu) lista sen sivuista. Apuna käytetään apuluokkaa 'PalikkaJaAsento'
-    private PalikkaJaAsento[] reunapalikoidenPaikat;
+    private PalikkaJaAsento[] reunaPalikoidenPaikat;
     
     public String[][][] taulukonTulkintaKuutionSivuiksi;
     
@@ -33,8 +33,8 @@ public class RubikinKuutio{
     
     public RubikinKuutio(){
         
-        this.kulmapalikoidenPaikat = new PalikkaJaAsento[8];
-        this.reunapalikoidenPaikat = new PalikkaJaAsento[12];
+        this.kulmaPalikoidenPaikat = new PalikkaJaAsento[8];
+        this.reunaPalikoidenPaikat = new PalikkaJaAsento[12];
         
         this.taulukonTulkintaKuutionSivuiksi = new String[6][3][3];
         
@@ -49,8 +49,8 @@ public class RubikinKuutio{
     }
     
     public RubikinKuutio(String yla, String vasen,String etu,String oikea,String ala,String taka){
-        this.kulmapalikoidenPaikat = new PalikkaJaAsento[8];
-        this.reunapalikoidenPaikat = new PalikkaJaAsento[12];
+        this.kulmaPalikoidenPaikat = new PalikkaJaAsento[8];
+        this.reunaPalikoidenPaikat = new PalikkaJaAsento[12];
         
         this.taulukonTulkintaKuutionSivuiksi = new String[6][3][3];
         
@@ -234,42 +234,42 @@ public class RubikinKuutio{
      * ja se vaihtaa niiden paikat siten että palikanNumero1 menee palikanNumero2 tilalle ja PalikanNumero2 taas PalikanNumero3 paikalle jne.
      */
     private void vaihdaKulmapalikkojenPaikat(int palikanNumero1, int palikanNumero2, int palikanNumero3, int palikanNumero4){
-       PalikkaJaAsento vanhaKulma1 = this.kulmapalikoidenPaikat[palikanNumero1];
-       PalikkaJaAsento vanhaKulma2 = this.kulmapalikoidenPaikat[palikanNumero2];
-       PalikkaJaAsento vanhaKulma3 = this.kulmapalikoidenPaikat[palikanNumero3];
-       PalikkaJaAsento vanhaKulma4 = this.kulmapalikoidenPaikat[palikanNumero4];
+       PalikkaJaAsento vanhaKulma1 = this.kulmaPalikoidenPaikat[palikanNumero1];
+       PalikkaJaAsento vanhaKulma2 = this.kulmaPalikoidenPaikat[palikanNumero2];
+       PalikkaJaAsento vanhaKulma3 = this.kulmaPalikoidenPaikat[palikanNumero3];
+       PalikkaJaAsento vanhaKulma4 = this.kulmaPalikoidenPaikat[palikanNumero4];
        
-       this.kulmapalikoidenPaikat[palikanNumero1] = vanhaKulma4;
-       this.kulmapalikoidenPaikat[palikanNumero2] = vanhaKulma1;
-       this.kulmapalikoidenPaikat[palikanNumero3] = vanhaKulma2;
-       this.kulmapalikoidenPaikat[palikanNumero4] = vanhaKulma3;
+       this.kulmaPalikoidenPaikat[palikanNumero1] = vanhaKulma4;
+       this.kulmaPalikoidenPaikat[palikanNumero2] = vanhaKulma1;
+       this.kulmaPalikoidenPaikat[palikanNumero3] = vanhaKulma2;
+       this.kulmaPalikoidenPaikat[palikanNumero4] = vanhaKulma3;
     }
     
     private void vaihdaReunapalikoidenPaikat(int palikanNumero1, int palikanNumero2, int palikanNumero3, int palikanNumero4){
-       PalikkaJaAsento vanhaReuna1 = this.reunapalikoidenPaikat[palikanNumero1];
-       PalikkaJaAsento vanhaReuna2 = this.reunapalikoidenPaikat[palikanNumero2];
-       PalikkaJaAsento vanhaReuna3 = this.reunapalikoidenPaikat[palikanNumero3];
-       PalikkaJaAsento vanhaReuna4 = this.reunapalikoidenPaikat[palikanNumero4];
+       PalikkaJaAsento vanhaReuna1 = this.reunaPalikoidenPaikat[palikanNumero1];
+       PalikkaJaAsento vanhaReuna2 = this.reunaPalikoidenPaikat[palikanNumero2];
+       PalikkaJaAsento vanhaReuna3 = this.reunaPalikoidenPaikat[palikanNumero3];
+       PalikkaJaAsento vanhaReuna4 = this.reunaPalikoidenPaikat[palikanNumero4];
        
-       this.reunapalikoidenPaikat[palikanNumero1] = vanhaReuna4;
-       this.reunapalikoidenPaikat[palikanNumero2] = vanhaReuna1;
-       this.reunapalikoidenPaikat[palikanNumero3] = vanhaReuna2;
-       this.reunapalikoidenPaikat[palikanNumero4] = vanhaReuna3;
+       this.reunaPalikoidenPaikat[palikanNumero1] = vanhaReuna4;
+       this.reunaPalikoidenPaikat[palikanNumero2] = vanhaReuna1;
+       this.reunaPalikoidenPaikat[palikanNumero3] = vanhaReuna2;
+       this.reunaPalikoidenPaikat[palikanNumero4] = vanhaReuna3;
        
     }
     
     private void kaannaKulmapalikkaa(int palikanIndeksi,int sivu1,int sivu2,int sivu3){
-        this.kulmapalikoidenPaikat[palikanIndeksi].muutaAsento(new int[] {sivu1, sivu2, sivu3});
+        this.kulmaPalikoidenPaikat[palikanIndeksi].muutaAsento(new int[] {sivu1, sivu2, sivu3});
     }
     private void kaannaReunapalikkaa(int palikanIndeksi){
-        this.reunapalikoidenPaikat[palikanIndeksi].muutaAsento(new int[] {2,1});
+        this.reunaPalikoidenPaikat[palikanIndeksi].muutaAsento(new int[] {2,1});
     }
     
     private void luoKulmapalikkaJaAsetaSePaikalleAsentoon(String PalikanNimi,int paikka,String sivu1vari,String sivu2vari,String sivu3vari){
-        this.kulmapalikoidenPaikat[paikka]= new PalikkaJaAsento(new Kulmapalikka(PalikanNimi, sivu1vari, sivu2vari, sivu3vari));
+        this.kulmaPalikoidenPaikat[paikka]= new PalikkaJaAsento(new KulmaPalikka(PalikanNimi, sivu1vari, sivu2vari, sivu3vari));
     }
     private void luoReunapalikkaJaAsetaSePaikalleAsentoon(String PalikanNimi,int paikka,String sivu1vari,String sivu2vari){
-        this.reunapalikoidenPaikat[paikka]= new PalikkaJaAsento(new Reunapalikka(PalikanNimi, sivu1vari, sivu2vari));
+        this.reunaPalikoidenPaikat[paikka]= new PalikkaJaAsento(new ReunaPalikka(PalikanNimi, sivu1vari, sivu2vari));
     }
     /**
      * Palauttaa RubikinKuution halutun sivun alkuperäisen värin
@@ -282,87 +282,87 @@ public class RubikinKuutio{
     
     private void paivitaYla(){
        
-        this.taulukonTulkintaKuutionSivuiksi[0][0][0] = this.kulmapalikoidenPaikat[0].haeMikaVariPaikallaOn(2);
-        this.taulukonTulkintaKuutionSivuiksi[0][0][1] = this.reunapalikoidenPaikat[0].haeMikaVariPaikallaOn(2);
-        this.taulukonTulkintaKuutionSivuiksi[0][0][2] = this.kulmapalikoidenPaikat[1].haeMikaVariPaikallaOn(3);
+        this.taulukonTulkintaKuutionSivuiksi[0][0][0] = this.kulmaPalikoidenPaikat[0].haeMikaVariPaikallaOn(2);
+        this.taulukonTulkintaKuutionSivuiksi[0][0][1] = this.reunaPalikoidenPaikat[0].haeMikaVariPaikallaOn(2);
+        this.taulukonTulkintaKuutionSivuiksi[0][0][2] = this.kulmaPalikoidenPaikat[1].haeMikaVariPaikallaOn(3);
         
-        this.taulukonTulkintaKuutionSivuiksi[0][1][0] = this.reunapalikoidenPaikat[1].haeMikaVariPaikallaOn(1); 
+        this.taulukonTulkintaKuutionSivuiksi[0][1][0] = this.reunaPalikoidenPaikat[1].haeMikaVariPaikallaOn(1); 
         this.taulukonTulkintaKuutionSivuiksi[0][1][1] = this.yla;
-        this.taulukonTulkintaKuutionSivuiksi[0][1][2] = this.reunapalikoidenPaikat[2].haeMikaVariPaikallaOn(1); 
+        this.taulukonTulkintaKuutionSivuiksi[0][1][2] = this.reunaPalikoidenPaikat[2].haeMikaVariPaikallaOn(1); 
         
-        this.taulukonTulkintaKuutionSivuiksi[0][2][0] = this.kulmapalikoidenPaikat[2].haeMikaVariPaikallaOn(3);
-        this.taulukonTulkintaKuutionSivuiksi[0][2][1] = this.reunapalikoidenPaikat[3].haeMikaVariPaikallaOn(2);
-        this.taulukonTulkintaKuutionSivuiksi[0][2][2] = this.kulmapalikoidenPaikat[3].haeMikaVariPaikallaOn(2);
+        this.taulukonTulkintaKuutionSivuiksi[0][2][0] = this.kulmaPalikoidenPaikat[2].haeMikaVariPaikallaOn(3);
+        this.taulukonTulkintaKuutionSivuiksi[0][2][1] = this.reunaPalikoidenPaikat[3].haeMikaVariPaikallaOn(2);
+        this.taulukonTulkintaKuutionSivuiksi[0][2][2] = this.kulmaPalikoidenPaikat[3].haeMikaVariPaikallaOn(2);
         
     }
     private void paivitaVasen(){
-        this.taulukonTulkintaKuutionSivuiksi[1][0][0] = this.kulmapalikoidenPaikat[0].haeMikaVariPaikallaOn(3);
-        this.taulukonTulkintaKuutionSivuiksi[1][0][1] = this.reunapalikoidenPaikat[1].haeMikaVariPaikallaOn(2);
-        this.taulukonTulkintaKuutionSivuiksi[1][0][2] = this.kulmapalikoidenPaikat[2].haeMikaVariPaikallaOn(2);
+        this.taulukonTulkintaKuutionSivuiksi[1][0][0] = this.kulmaPalikoidenPaikat[0].haeMikaVariPaikallaOn(3);
+        this.taulukonTulkintaKuutionSivuiksi[1][0][1] = this.reunaPalikoidenPaikat[1].haeMikaVariPaikallaOn(2);
+        this.taulukonTulkintaKuutionSivuiksi[1][0][2] = this.kulmaPalikoidenPaikat[2].haeMikaVariPaikallaOn(2);
         
-        this.taulukonTulkintaKuutionSivuiksi[1][1][0]= this.reunapalikoidenPaikat[4].haeMikaVariPaikallaOn(2); 
+        this.taulukonTulkintaKuutionSivuiksi[1][1][0]= this.reunaPalikoidenPaikat[4].haeMikaVariPaikallaOn(2); 
         this.taulukonTulkintaKuutionSivuiksi[1][1][1] = this.vasen;
-        this.taulukonTulkintaKuutionSivuiksi[1][1][2] = this.reunapalikoidenPaikat[5].haeMikaVariPaikallaOn(2); 
+        this.taulukonTulkintaKuutionSivuiksi[1][1][2] = this.reunaPalikoidenPaikat[5].haeMikaVariPaikallaOn(2); 
         
-        this.taulukonTulkintaKuutionSivuiksi[1][2][0] = this.kulmapalikoidenPaikat[4].haeMikaVariPaikallaOn(2);
-        this.taulukonTulkintaKuutionSivuiksi[1][2][1] = this.reunapalikoidenPaikat[8].haeMikaVariPaikallaOn(2);
-        this.taulukonTulkintaKuutionSivuiksi[1][2][2] = this.kulmapalikoidenPaikat[5].haeMikaVariPaikallaOn(3);
+        this.taulukonTulkintaKuutionSivuiksi[1][2][0] = this.kulmaPalikoidenPaikat[4].haeMikaVariPaikallaOn(2);
+        this.taulukonTulkintaKuutionSivuiksi[1][2][1] = this.reunaPalikoidenPaikat[8].haeMikaVariPaikallaOn(2);
+        this.taulukonTulkintaKuutionSivuiksi[1][2][2] = this.kulmaPalikoidenPaikat[5].haeMikaVariPaikallaOn(3);
     }
     
     private void paivitaEtu(){
-        this.taulukonTulkintaKuutionSivuiksi[2][0][0] = this.kulmapalikoidenPaikat[2].haeMikaVariPaikallaOn(1);
-        this.taulukonTulkintaKuutionSivuiksi[2][0][1] = this.reunapalikoidenPaikat[3].haeMikaVariPaikallaOn(1);
-        this.taulukonTulkintaKuutionSivuiksi[2][0][2] = this.kulmapalikoidenPaikat[3].haeMikaVariPaikallaOn(1);
+        this.taulukonTulkintaKuutionSivuiksi[2][0][0] = this.kulmaPalikoidenPaikat[2].haeMikaVariPaikallaOn(1);
+        this.taulukonTulkintaKuutionSivuiksi[2][0][1] = this.reunaPalikoidenPaikat[3].haeMikaVariPaikallaOn(1);
+        this.taulukonTulkintaKuutionSivuiksi[2][0][2] = this.kulmaPalikoidenPaikat[3].haeMikaVariPaikallaOn(1);
         
-        this.taulukonTulkintaKuutionSivuiksi[2][1][0] = this.reunapalikoidenPaikat[5].haeMikaVariPaikallaOn(1); 
+        this.taulukonTulkintaKuutionSivuiksi[2][1][0] = this.reunaPalikoidenPaikat[5].haeMikaVariPaikallaOn(1); 
         this.taulukonTulkintaKuutionSivuiksi[2][1][1] = this.etu;
-        this.taulukonTulkintaKuutionSivuiksi[2][1][2] = this.reunapalikoidenPaikat[6].haeMikaVariPaikallaOn(1); 
+        this.taulukonTulkintaKuutionSivuiksi[2][1][2] = this.reunaPalikoidenPaikat[6].haeMikaVariPaikallaOn(1); 
         
-        this.taulukonTulkintaKuutionSivuiksi[2][2][0] = this.kulmapalikoidenPaikat[5].haeMikaVariPaikallaOn(1);
-        this.taulukonTulkintaKuutionSivuiksi[2][2][1] = this.reunapalikoidenPaikat[9].haeMikaVariPaikallaOn(1);
-        this.taulukonTulkintaKuutionSivuiksi[2][2][2] = this.kulmapalikoidenPaikat[6].haeMikaVariPaikallaOn(1);
+        this.taulukonTulkintaKuutionSivuiksi[2][2][0] = this.kulmaPalikoidenPaikat[5].haeMikaVariPaikallaOn(1);
+        this.taulukonTulkintaKuutionSivuiksi[2][2][1] = this.reunaPalikoidenPaikat[9].haeMikaVariPaikallaOn(1);
+        this.taulukonTulkintaKuutionSivuiksi[2][2][2] = this.kulmaPalikoidenPaikat[6].haeMikaVariPaikallaOn(1);
     }
     
     private void paivitaOikea(){
-        this.taulukonTulkintaKuutionSivuiksi[3][0][0] = this.kulmapalikoidenPaikat[3].haeMikaVariPaikallaOn(3);
-        this.taulukonTulkintaKuutionSivuiksi[3][0][1] = this.reunapalikoidenPaikat[2].haeMikaVariPaikallaOn(2);
-        this.taulukonTulkintaKuutionSivuiksi[3][0][2] = this.kulmapalikoidenPaikat[1].haeMikaVariPaikallaOn(2);
+        this.taulukonTulkintaKuutionSivuiksi[3][0][0] = this.kulmaPalikoidenPaikat[3].haeMikaVariPaikallaOn(3);
+        this.taulukonTulkintaKuutionSivuiksi[3][0][1] = this.reunaPalikoidenPaikat[2].haeMikaVariPaikallaOn(2);
+        this.taulukonTulkintaKuutionSivuiksi[3][0][2] = this.kulmaPalikoidenPaikat[1].haeMikaVariPaikallaOn(2);
         
-        this.taulukonTulkintaKuutionSivuiksi[3][1][0] = this.reunapalikoidenPaikat[6].haeMikaVariPaikallaOn(2); 
+        this.taulukonTulkintaKuutionSivuiksi[3][1][0] = this.reunaPalikoidenPaikat[6].haeMikaVariPaikallaOn(2); 
         this.taulukonTulkintaKuutionSivuiksi[3][1][1] = this.oikea;
-        this.taulukonTulkintaKuutionSivuiksi[3][1][2] = this.reunapalikoidenPaikat[7].haeMikaVariPaikallaOn(2); 
+        this.taulukonTulkintaKuutionSivuiksi[3][1][2] = this.reunaPalikoidenPaikat[7].haeMikaVariPaikallaOn(2); 
         
-        this.taulukonTulkintaKuutionSivuiksi[3][2][0] = this.kulmapalikoidenPaikat[6].haeMikaVariPaikallaOn(2);
-        this.taulukonTulkintaKuutionSivuiksi[3][2][1] = this.reunapalikoidenPaikat[10].haeMikaVariPaikallaOn(2);
-        this.taulukonTulkintaKuutionSivuiksi[3][2][2] = this.kulmapalikoidenPaikat[7].haeMikaVariPaikallaOn(3);
+        this.taulukonTulkintaKuutionSivuiksi[3][2][0] = this.kulmaPalikoidenPaikat[6].haeMikaVariPaikallaOn(2);
+        this.taulukonTulkintaKuutionSivuiksi[3][2][1] = this.reunaPalikoidenPaikat[10].haeMikaVariPaikallaOn(2);
+        this.taulukonTulkintaKuutionSivuiksi[3][2][2] = this.kulmaPalikoidenPaikat[7].haeMikaVariPaikallaOn(3);
     }
     
     private void paivitaAla(){
-        this.taulukonTulkintaKuutionSivuiksi[4][0][0] = this.kulmapalikoidenPaikat[5].haeMikaVariPaikallaOn(2);
-        this.taulukonTulkintaKuutionSivuiksi[4][0][1] = this.reunapalikoidenPaikat[9].haeMikaVariPaikallaOn(2);
-        this.taulukonTulkintaKuutionSivuiksi[4][0][2] = this.kulmapalikoidenPaikat[6].haeMikaVariPaikallaOn(3);
+        this.taulukonTulkintaKuutionSivuiksi[4][0][0] = this.kulmaPalikoidenPaikat[5].haeMikaVariPaikallaOn(2);
+        this.taulukonTulkintaKuutionSivuiksi[4][0][1] = this.reunaPalikoidenPaikat[9].haeMikaVariPaikallaOn(2);
+        this.taulukonTulkintaKuutionSivuiksi[4][0][2] = this.kulmaPalikoidenPaikat[6].haeMikaVariPaikallaOn(3);
         
-        this.taulukonTulkintaKuutionSivuiksi[4][1][0] = this.reunapalikoidenPaikat[8].haeMikaVariPaikallaOn(1); 
+        this.taulukonTulkintaKuutionSivuiksi[4][1][0] = this.reunaPalikoidenPaikat[8].haeMikaVariPaikallaOn(1); 
         this.taulukonTulkintaKuutionSivuiksi[4][1][1] = this.ala;
-        this.taulukonTulkintaKuutionSivuiksi[4][1][2] = this.reunapalikoidenPaikat[10].haeMikaVariPaikallaOn(1); 
+        this.taulukonTulkintaKuutionSivuiksi[4][1][2] = this.reunaPalikoidenPaikat[10].haeMikaVariPaikallaOn(1); 
         
-        this.taulukonTulkintaKuutionSivuiksi[4][2][0] = this.kulmapalikoidenPaikat[4].haeMikaVariPaikallaOn(3);
-        this.taulukonTulkintaKuutionSivuiksi[4][2][1] = this.reunapalikoidenPaikat[11].haeMikaVariPaikallaOn(2);
-        this.taulukonTulkintaKuutionSivuiksi[4][2][2] = this.kulmapalikoidenPaikat[7].haeMikaVariPaikallaOn(2);
+        this.taulukonTulkintaKuutionSivuiksi[4][2][0] = this.kulmaPalikoidenPaikat[4].haeMikaVariPaikallaOn(3);
+        this.taulukonTulkintaKuutionSivuiksi[4][2][1] = this.reunaPalikoidenPaikat[11].haeMikaVariPaikallaOn(2);
+        this.taulukonTulkintaKuutionSivuiksi[4][2][2] = this.kulmaPalikoidenPaikat[7].haeMikaVariPaikallaOn(2);
     }
     
      private void paivitaTaka(){
-        this.taulukonTulkintaKuutionSivuiksi[5][0][0] = this.kulmapalikoidenPaikat[4].haeMikaVariPaikallaOn(1);
-        this.taulukonTulkintaKuutionSivuiksi[5][0][1] = this.reunapalikoidenPaikat[11].haeMikaVariPaikallaOn(1);
-        this.taulukonTulkintaKuutionSivuiksi[5][0][2] = this.kulmapalikoidenPaikat[7].haeMikaVariPaikallaOn(1);
+        this.taulukonTulkintaKuutionSivuiksi[5][0][0] = this.kulmaPalikoidenPaikat[4].haeMikaVariPaikallaOn(1);
+        this.taulukonTulkintaKuutionSivuiksi[5][0][1] = this.reunaPalikoidenPaikat[11].haeMikaVariPaikallaOn(1);
+        this.taulukonTulkintaKuutionSivuiksi[5][0][2] = this.kulmaPalikoidenPaikat[7].haeMikaVariPaikallaOn(1);
        
-        this.taulukonTulkintaKuutionSivuiksi[5][1][0] = this.reunapalikoidenPaikat[4].haeMikaVariPaikallaOn(1); 
+        this.taulukonTulkintaKuutionSivuiksi[5][1][0] = this.reunaPalikoidenPaikat[4].haeMikaVariPaikallaOn(1); 
         this.taulukonTulkintaKuutionSivuiksi[5][1][1] = this.taka;
-        this.taulukonTulkintaKuutionSivuiksi[5][1][2] = this.reunapalikoidenPaikat[7].haeMikaVariPaikallaOn(1); 
+        this.taulukonTulkintaKuutionSivuiksi[5][1][2] = this.reunaPalikoidenPaikat[7].haeMikaVariPaikallaOn(1); 
         
-        this.taulukonTulkintaKuutionSivuiksi[5][2][0] = this.kulmapalikoidenPaikat[0].haeMikaVariPaikallaOn(1);
-        this.taulukonTulkintaKuutionSivuiksi[5][2][1] = this.reunapalikoidenPaikat[0].haeMikaVariPaikallaOn(1);
-        this.taulukonTulkintaKuutionSivuiksi[5][2][2] = this.kulmapalikoidenPaikat[1].haeMikaVariPaikallaOn(1);
+        this.taulukonTulkintaKuutionSivuiksi[5][2][0] = this.kulmaPalikoidenPaikat[0].haeMikaVariPaikallaOn(1);
+        this.taulukonTulkintaKuutionSivuiksi[5][2][1] = this.reunaPalikoidenPaikat[0].haeMikaVariPaikallaOn(1);
+        this.taulukonTulkintaKuutionSivuiksi[5][2][2] = this.kulmaPalikoidenPaikat[1].haeMikaVariPaikallaOn(1);
         
     }
     

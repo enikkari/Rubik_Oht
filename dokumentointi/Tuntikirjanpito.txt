@@ -17,3 +17,6 @@ Luotiin avuksi luokka PalikkaJaAsento.
 Koodin logiikka on nyt suunnilleen käyttöliittymää vailla valmis
 
 8.4. ~1h käyttöliittymien ja Color-luokan tutkimista
+
+12.4. 4h Käyttöliittymän, piirtoalustan ja näppäimistönkuuntelijan tekeminen. Käyttöliittymä lähes valmis.
+Vielä pitää piirtää luokkakaavioita ja tehdä testejä ja ratkaista miten kuutiota käännetään vastapäivään.

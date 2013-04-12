@@ -10,10 +10,10 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import rubik_oht.palikat.Kulmapalikka;
+import rubik_oht.palikat.KulmaPalikka;
 import rubik_oht.palikat.Palikka;
 import rubik_oht.apuluokat.PalikkaJaAsento;
-import rubik_oht.palikat.Reunapalikka;
+import rubik_oht.palikat.ReunaPalikka;
 
 /**
  *
@@ -22,7 +22,7 @@ import rubik_oht.palikat.Reunapalikka;
 public class PalikkaJaAsentoTest {
 
     PalikkaJaAsento sailo;
-    Kulmapalikka kulmapalikka;
+    KulmaPalikka kulmapalikka;
     
     public PalikkaJaAsentoTest(){
         
@@ -30,7 +30,7 @@ public class PalikkaJaAsentoTest {
     
     @Before
     public void setUp() {
-        this.kulmapalikka = new Kulmapalikka("K", "a", "b", "c");
+        this.kulmapalikka = new KulmaPalikka("K", "a", "b", "c");
         this.sailo = new PalikkaJaAsento(kulmapalikka);
     }
     

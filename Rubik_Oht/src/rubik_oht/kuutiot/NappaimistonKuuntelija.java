@@ -20,6 +20,7 @@ public class NappaimistonKuuntelija implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
+        
         if (e.getKeyCode() == KeyEvent.VK_Y || e.getKeyCode() == KeyEvent.VK_0){
             kuutio.kaannaYla();
         } else if (e.getKeyCode() == KeyEvent.VK_V || e.getKeyCode() == KeyEvent.VK_1) {
@@ -33,12 +34,13 @@ public class NappaimistonKuuntelija implements KeyListener {
         } else if (e.getKeyCode() == KeyEvent.VK_T || e.getKeyCode() == KeyEvent.VK_5) {
             kuutio.kaannaTaka();
         }
-        
         component.repaint();
-    }
+        }
+        
 
     @Override
     public void keyReleased(KeyEvent e) {
+        
     }
 
     @Override
