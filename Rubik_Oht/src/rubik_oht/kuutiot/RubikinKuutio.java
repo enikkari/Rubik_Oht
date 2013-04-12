@@ -1,6 +1,8 @@
 
 package rubik_oht.kuutiot;
 
+import java.awt.Color;
+import java.io.IOException;
 import rubik_oht.apuluokat.PalikkaJaAsento;
 import rubik_oht.palikat.Reunapalikka;
 import rubik_oht.palikat.Kulmapalikka;
@@ -396,6 +398,28 @@ public class RubikinKuutio{
     
     public String[][] haeTaulukonTulkintaSivuiksi(int mikaSivu){
         return this.taulukonTulkintaKuutionSivuiksi[mikaSivu];
+    }
+    /**
+     * Palauttaa merkkijonona mikä 'väri' taulukonTulkintaSivuiksi-taulukossa on eli minkä värinen
+     * sivu tietyllä kuution paikalla on
+     * @param mikaSivu Halutun kuution sivun indeksi
+     * @param rivilla halutun rivin indeksi sivulla
+     * @param sarakkeella halutun sarakkeen indeksi sivulla
+     */
+    
+    public String mikaMerkkijonoOnPaikalla(int mikaSivu, int rivilla, int sarakkeella){
+        return this.taulukonTulkintaKuutionSivuiksi[mikaSivu][rivilla][sarakkeella];
+    }
+    
+    /**
+     * Palauttaa Color -oliona mikä 'väri' taulukonTulkintaSivuiksi-taulukossa on eli minkä värinen
+     * sivu tietyllä kuution paikalla on
+     * @param mikaSivu Halutun kuution sivun indeksi
+     * @param rivilla halutun rivin indeksi sivulla
+     * @param sarakkeella halutun sarakkeen indeksi sivulla
+     */
+    public Color mikaVariOnPaikalla(int mikaSivu, int rivilla, int sarakkeella){
+        return Color.decode(this.mikaMerkkijonoOnPaikalla(mikaSivu, rivilla, sarakkeella));
     }
     
 }

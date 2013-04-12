@@ -1,25 +1,22 @@
 package kayttoliittyma;
 
-import java.awt.Container;
-import java.awt.Dimension;
-import javax.swing.JFrame;
-import javax.swing.WindowConstants;
+import java.awt.*;
+import javax.swing.*;
+import rubik_oht.kuutiot.RubikinKuutio;
 
-/**
- *
- * @author eevanikkari
- */
-public class RubikKayttoliittyma  implements Runnable {
+public class RubikKayttoliittyma implements Runnable {
 
     private JFrame frame;
+    private RubikinKuutio kuutio;
 
     public RubikKayttoliittyma() {
+        this.kuutio = new RubikinKuutio();
     }
 
     @Override
     public void run() {
         frame = new JFrame("Rubikin kuutio");
-        frame.setPreferredSize(new Dimension(300, 400));
+        frame.setPreferredSize(new Dimension(194, 281));
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -30,13 +27,11 @@ public class RubikKayttoliittyma  implements Runnable {
     }
 
     private void luoKomponentit(Container container) {
-        
+        container.add(new Piirtoalusta(this.kuutio));
     }
 
     public JFrame getFrame() {
         return frame;
     }
 }
-
-    
 
