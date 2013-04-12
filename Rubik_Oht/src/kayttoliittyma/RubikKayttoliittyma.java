@@ -2,6 +2,7 @@ package kayttoliittyma;
 
 import java.awt.*;
 import javax.swing.*;
+import rubik_oht.kuutiot.NappaimistonKuuntelija;
 import rubik_oht.kuutiot.RubikinKuutio;
 
 public class RubikKayttoliittyma implements Runnable {
@@ -27,7 +28,10 @@ public class RubikKayttoliittyma implements Runnable {
     }
 
     private void luoKomponentit(Container container) {
-        container.add(new Piirtoalusta(this.kuutio));
+        Piirtoalusta piirtoalusta = new Piirtoalusta(kuutio);
+        container.add(piirtoalusta);
+
+        frame.addKeyListener(new NappaimistonKuuntelija(kuutio, piirtoalusta));
     }
 
     public JFrame getFrame() {
