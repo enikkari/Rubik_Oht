@@ -21,3 +21,5 @@ Koodin logiikka on nyt suunnilleen käyttöliittymää vailla valmis
 12.4. 4h Käyttöliittymän, piirtoalustan ja näppäimistönkuuntelijan tekeminen. Käyttöliittymä lähes valmis.
 Vielä pitää piirtää luokkakaavioita ja tehdä testejä ja ratkaista miten kuutiota käännetään vastapäivään.
      +~1h Luokkakaavioihin tutustumista. Uuden luokkakaavion piirtäminen.
+
+14.4. ~3h Testien tekemistä. Taulukkojen vertailun aiheuttamien ongelmien kanssa paiseilua.

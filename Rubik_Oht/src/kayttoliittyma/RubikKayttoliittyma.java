@@ -2,7 +2,6 @@ package kayttoliittyma;
 
 import java.awt.*;
 import javax.swing.*;
-import rubik_oht.kuutiot.NappaimistonKuuntelija;
 import rubik_oht.kuutiot.RubikinKuutio;
 
 public class RubikKayttoliittyma implements Runnable {

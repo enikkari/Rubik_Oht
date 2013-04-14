@@ -16,7 +16,7 @@ import rubik_oht.kuutiot.RubikinKuutio;
  *
  * @author eevanikkari
  */
-public class rubikinKuutioTulostusTest {
+public class RubikinKuutioAlussaOikeinTest {
     RubikinKuutio rubik;
     
     @Before
@@ -30,11 +30,9 @@ public class rubikinKuutioTulostusTest {
     
     @Test
     public void alussaYlaOikein() {
-        String[][] yla = this.rubik.haeTaulukonTulkintaSivuiksi(0);
-        
         for(int i = 0; i<3; i++){
             for(int a = 0; a<3; a++){
-                assertEquals("Yla-sivussa on alussa vaaria vareja. Taulukon tulkinta saattaa olla väärä.","@", yla[i][a]);
+                assertEquals("Yla-sivussa on alussa vaaria vareja. Taulukon tulkinta saattaa olla väärä.","@", this.rubik.mikaMerkkijonoOnPaikalla(0, i, a));
             }
         }
     }
@@ -42,53 +40,43 @@ public class rubikinKuutioTulostusTest {
     
     @Test
     public void alussaVasenOikein() {
-        String[][] vasen = this.rubik.haeTaulukonTulkintaSivuiksi(1);
-        
         for(int i = 0; i<3; i++){
             for(int a = 0; a<3; a++){
-                assertEquals("Vasen-sivussa on alussa vaaria vareja. Taulukon tulkinta saattaa olla väärä.","#", vasen[i][a]);
+                assertEquals("Vasen-sivussa on alussa vaaria vareja. Taulukon tulkinta saattaa olla väärä.","#", this.rubik.mikaMerkkijonoOnPaikalla(1, i, a));
             }
         }
     }
     
     @Test
     public void alussaEtuOikein() {
-        String[][] etu = this.rubik.haeTaulukonTulkintaSivuiksi(2);
-        
         for(int i = 0; i<3; i++){
             for(int a = 0; a<3; a++){
-                assertEquals("Etu-sivussa on alussa vaaria vareja. Taulukon tulkinta saattaa olla väärä.","€", etu[i][a]);
+                assertEquals("Etu-sivussa on alussa vaaria vareja. Taulukon tulkinta saattaa olla väärä.","€", this.rubik.mikaMerkkijonoOnPaikalla(2, i, a));
             }
         }
     }
     
     @Test
     public void alussaOikeaOikein() {
-        String[][] oikea = this.rubik.haeTaulukonTulkintaSivuiksi(3);
-        
         for(int i = 0; i<3; i++){
             for(int a = 0; a<3; a++){
-                assertEquals("Oikea-sivussa on alussa vaaria vareja. Taulukon tulkinta saattaa olla väärä.","%", oikea[i][a]);
+                assertEquals("Oikea-sivussa on alussa vaaria vareja. Taulukon tulkinta saattaa olla väärä.","%", this.rubik.mikaMerkkijonoOnPaikalla(3, i, a));
             }
         }
     }
     @Test
     public void alussaAlaOikein() {
-        String[][] ala = this.rubik.haeTaulukonTulkintaSivuiksi(4);
-        
         for(int i = 0; i<3; i++){
             for(int a = 0; a<3; a++){
-                assertEquals("Ala-sivussa on alussa vaaria vareja. Taulukon tulkinta saattaa olla väärä.","&", ala[i][a]);
+                assertEquals("Ala-sivussa on alussa vaaria vareja. Taulukon tulkinta saattaa olla väärä.","&", this.rubik.mikaMerkkijonoOnPaikalla(4, i, a));
             }
         }
     }
     @Test
     public void alussaTakaOikein() {
-        String[][] taka = this.rubik.haeTaulukonTulkintaSivuiksi(5);
-        
         for(int i = 0; i<3; i++){
             for(int a = 0; a<3; a++){
-                assertEquals("Taka-sivussa on alussa vaaria vareja. Taulukon tulkinta saattaa olla väärä.","?", taka[i][a]);
+                assertEquals("Taka-sivussa on alussa vaaria vareja. Taulukon tulkinta saattaa olla väärä.","?", this.rubik.mikaMerkkijonoOnPaikalla(5, i, a));
             }
         }
     }

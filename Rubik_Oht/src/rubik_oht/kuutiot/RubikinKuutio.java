@@ -18,11 +18,11 @@ import rubik_oht.palikat.KulmaPalikka;
  */
 public class RubikinKuutio{
     
-    private PalikkaJaAsento[] kulmaPalikoidenPaikat;//Taulukossa on (numeroiduilla) paikoilla tieto mikä palikka paikalla on ja
-                                                   //(numeroitu) lista sen sivuista. Apuna käytetään apuluokkaa 'PalikkaJaAsento'
+    private PalikkaJaAsento[] kulmaPalikoidenPaikat;
+                                                   
     private PalikkaJaAsento[] reunaPalikoidenPaikat;
     
-    public String[][][] taulukonTulkintaKuutionSivuiksi;
+    private String[][][] taulukonTulkintaKuutionSivuiksi;
     
     private String yla; //sivujen värit
     private String vasen;
@@ -95,9 +95,6 @@ public class RubikinKuutio{
        *Lisään työhön havainnolistavan kaavion kuution koordinaateista
        *Esim. Yla-sivu on taulukonTulkintaKuutionSivuiksi paikalla 0 siksi ensimmäinen koordinaatti on [0]
        *seuraavat koordinaatit ovat sivun tulkinta tavallisessa koordinaatistossa, johon etsitään tiedot taulukoista
-
-        *Taulukoista haetaan tiedot toiminnolla
-        *this.mikaTaulukko[PalikanNumero-1](varinNumero);
         */
     private void paivitaTaulukonTulkintaKuutionSivuiksi(){
         this.paivitaYla();
@@ -107,105 +104,18 @@ public class RubikinKuutio{
         this.paivitaAla();
         this.paivitaTaka();
     }
-    /**
-     * metodi kääntää 'etu'-sivua myötäpäivään
-     * Kuution koordinaatit on valittu siten että etu- ja takakäännöt eivät muuta palikkojen asentoja
-     */
-    public void kaannaEtu(){
-        this.vaihdaKulmapalikkojenPaikat(2, 3, 6, 5);
-        this.vaihdaReunapalikoidenPaikat(3,6,9,5);
-       this.paivitaTaulukonTulkintaKuutionSivuiksi();
-    }
-    /**
-     * metodi kääntää 'taka'-sivua myötäpäivään
-     * Kuution koordinaatit on valittu siten että etu- ja takakäännöt eivät muuta palikkojen asentoja
-     */
-    public void kaannaTaka(){
-        this.vaihdaKulmapalikkojenPaikat(4,7,1,0);
-        this.vaihdaReunapalikoidenPaikat(11,7,0,4);
-       this.paivitaTaulukonTulkintaKuutionSivuiksi();
-    }
-    /**
-     * metodi kääntää 'yla'-sivua myötäpäivään. Se muuttaa sekä palikoiden paikkoja että asentoja
-     */
-    public void kaannaYla(){
-        this.vaihdaKulmapalikkojenPaikat(0,1,3,2);
-        this.vaihdaReunapalikoidenPaikat(0,2,3,1);
-        
-        this.kaannaKulmapalikkaa(0, 2, 3, 1);
-        this.kaannaKulmapalikkaa(1, 3,1,2);
-        this.kaannaKulmapalikkaa(3, 2,3,1);
-        this.kaannaKulmapalikkaa(2,3,1,2);
-        
-        this.kaannaReunapalikkaa(0);
-        this.kaannaReunapalikkaa(2);
-        this.kaannaReunapalikkaa(3);
-        this.kaannaReunapalikkaa(1);
-       
-       this.paivitaTaulukonTulkintaKuutionSivuiksi();
-    }
-    /**
-     * metodi kääntää 'vasen'-sivua myötäpäivään. Se muuttaa sekä palikoiden paikkoja että asentoja
-     */
-    public void kaannaVasen(){
-        this.vaihdaKulmapalikkojenPaikat(0,2,5,4);
-        this.vaihdaReunapalikoidenPaikat(1,5,8,4);
-       
-        this.kaannaKulmapalikkaa(0,3,1,2);
-        this.kaannaKulmapalikkaa(2,2,3,1);
-        this.kaannaKulmapalikkaa(5,3,1,2);
-        this.kaannaKulmapalikkaa(4,2,3,1);
-       
-       //reunapalikoiden asennot pysyvät tässä siirrossa samoina
-       
-       this.paivitaTaulukonTulkintaKuutionSivuiksi();
-    }
-    /**
-     * metodi kääntää 'oikea'-sivua myötäpäivään. Se muuttaa sekä palikoiden paikkoja että asentoja
-     */
-    public void kaannaOikea(){
-        this.vaihdaKulmapalikkojenPaikat(3,1,7,6);
-        this.vaihdaReunapalikoidenPaikat(2,7,10,6);
-       
-        this.kaannaKulmapalikkaa(3,3,1,2);
-        this.kaannaKulmapalikkaa(1,2,3,1);
-        this.kaannaKulmapalikkaa(7,3,1,2);
-        this.kaannaKulmapalikkaa(6,2,3,1);
-       
-       //reunapalikoiden asennot pysyvät tässä siirrossa samoina
-       
-       this.paivitaTaulukonTulkintaKuutionSivuiksi();
-    }
-    /**
-     * metodi kääntää 'ala'-sivua myötäpäivään. Se muuttaa sekä palikoiden paikkoja että asentoja
-     */
-    public void kaannaAla(){
-        this.vaihdaKulmapalikkojenPaikat(5,6,7,4);
-        this.vaihdaReunapalikoidenPaikat(9,10,11,8);
-        
-        this.kaannaKulmapalikkaa(5,2,3,1);
-        this.kaannaKulmapalikkaa(6,3,1,2);
-        this.kaannaKulmapalikkaa(7,2,3,1);
-        this.kaannaKulmapalikkaa(4,3,1,2);
-       
-       this.kaannaReunapalikkaa(9);
-       this.kaannaReunapalikkaa(10);
-       this.kaannaReunapalikkaa(11);
-       this.kaannaReunapalikkaa(8);
-       
-       this.paivitaTaulukonTulkintaKuutionSivuiksi();
-    }
+   
     /**
      * Metodi kääntää haluttua sivua haluttuun suuntaan
-     * @param myotaVaiVasta arvo 0 kääntää sivua myötäpäivään ja arvo 1 vastapäivään
+     * @param myotaVaiVasta arvo 1 kääntää sivua myötäpäivään ja arvo 0 vastapäivään
      * @param mikaSivu mitä sivua halutaan kääntää
      * (Vastapäivään kääntäminen on sama, kuin kääntäisi sivua kolme kertaa myötäpäivään)
      */
     
     public void kaannaMyotaTaiVastaPaivaan(int myotaVaiVasta, int mikaSivu){
-        if(myotaVaiVasta==0){
+        if(myotaVaiVasta==1){
             this.kaannaSivu(mikaSivu);
-        }else if(myotaVaiVasta==1){
+        }else if(myotaVaiVasta==0){
             this.kaannaSivu(mikaSivu);
             this.kaannaSivu(mikaSivu);
             this.kaannaSivu(mikaSivu);
@@ -229,10 +139,76 @@ public class RubikinKuutio{
         }
     }
     
-    /**
-     * metodille annetaan paikkaa vaihtavien Reunapalikoiden numerot myötäpäivään kiertävässä järjestyksessä
-     * ja se vaihtaa niiden paikat siten että palikanNumero1 menee palikanNumero2 tilalle ja PalikanNumero2 taas PalikanNumero3 paikalle jne.
-     */
+     private void kaannaEtu(){
+        this.vaihdaKulmapalikkojenPaikat(2, 3, 6, 5);
+        this.vaihdaReunapalikoidenPaikat(3,6,9,5);
+       this.paivitaTaulukonTulkintaKuutionSivuiksi();
+    }
+    private void kaannaTaka(){
+        this.vaihdaKulmapalikkojenPaikat(4,7,1,0);
+        this.vaihdaReunapalikoidenPaikat(11,7,0,4);
+       this.paivitaTaulukonTulkintaKuutionSivuiksi();
+    }
+    private void kaannaYla(){
+        this.vaihdaKulmapalikkojenPaikat(0,1,3,2);
+        this.vaihdaReunapalikoidenPaikat(0,2,3,1);
+        
+        this.kaannaKulmapalikkaa(0, 2,3,1);
+        this.kaannaKulmapalikkaa(1, 3,1,2);
+        this.kaannaKulmapalikkaa(3, 2,3,1);
+        this.kaannaKulmapalikkaa(2, 3,1,2);
+        
+        this.kaannaReunapalikkaa(0);
+        this.kaannaReunapalikkaa(2);
+        this.kaannaReunapalikkaa(3);
+        this.kaannaReunapalikkaa(1);
+       
+       this.paivitaTaulukonTulkintaKuutionSivuiksi();
+    }
+    private void kaannaVasen(){
+        this.vaihdaKulmapalikkojenPaikat(0,2,5,4);
+        this.vaihdaReunapalikoidenPaikat(1,5,8,4);
+       
+        this.kaannaKulmapalikkaa(0,3,1,2);
+        this.kaannaKulmapalikkaa(2,2,3,1);
+        this.kaannaKulmapalikkaa(5,3,1,2);
+        this.kaannaKulmapalikkaa(4,2,3,1);
+       
+       //reunapalikoiden asennot pysyvät tässä siirrossa samoina
+       
+       this.paivitaTaulukonTulkintaKuutionSivuiksi();
+    }
+    private void kaannaOikea(){
+        this.vaihdaKulmapalikkojenPaikat(3,1,7,6);
+        this.vaihdaReunapalikoidenPaikat(2,7,10,6);
+       
+        this.kaannaKulmapalikkaa(3,3,1,2);
+        this.kaannaKulmapalikkaa(1,2,3,1);
+        this.kaannaKulmapalikkaa(7,3,1,2);
+        this.kaannaKulmapalikkaa(6,2,3,1);
+       
+       //reunapalikoiden asennot pysyvät tässä siirrossa samoina
+       
+       this.paivitaTaulukonTulkintaKuutionSivuiksi();
+    }
+    
+    private void kaannaAla(){
+        this.vaihdaKulmapalikkojenPaikat(5,6,7,4);
+        this.vaihdaReunapalikoidenPaikat(9,10,11,8);
+        
+        this.kaannaKulmapalikkaa(5,2,3,1);
+        this.kaannaKulmapalikkaa(6,3,1,2);
+        this.kaannaKulmapalikkaa(7,2,3,1);
+        this.kaannaKulmapalikkaa(4,3,1,2);
+       
+       this.kaannaReunapalikkaa(9);
+       this.kaannaReunapalikkaa(10);
+       this.kaannaReunapalikkaa(11);
+       this.kaannaReunapalikkaa(8);
+       
+       this.paivitaTaulukonTulkintaKuutionSivuiksi();
+    }
+    
     private void vaihdaKulmapalikkojenPaikat(int palikanNumero1, int palikanNumero2, int palikanNumero3, int palikanNumero4){
        PalikkaJaAsento vanhaKulma1 = this.kulmaPalikoidenPaikat[palikanNumero1];
        PalikkaJaAsento vanhaKulma2 = this.kulmaPalikoidenPaikat[palikanNumero2];
@@ -379,26 +355,7 @@ public class RubikinKuutio{
         return sivuRakentaja.toString();
     }
     
-    public String tulostaKuutio(){
-        StringBuilder kuutionRakentaja = new StringBuilder();
-            kuutionRakentaja.append(tulostaSivu(0));
-            for(int i = 0; i<3;i++){
-            for(int mikaSivu=1; mikaSivu<=3; mikaSivu++){
-                for(int a=0; a<3; a++){
-                kuutionRakentaja.append(this.taulukonTulkintaKuutionSivuiksi[mikaSivu][i][a]);
-                }
-            }
-                kuutionRakentaja.append('\n');
-            }
-            kuutionRakentaja.append(tulostaSivu(4));
-            kuutionRakentaja.append(tulostaSivu(5));
-            
-        return kuutionRakentaja.toString();
-    }
     
-    public String[][] haeTaulukonTulkintaSivuiksi(int mikaSivu){
-        return this.taulukonTulkintaKuutionSivuiksi[mikaSivu];
-    }
     /**
      * Palauttaa merkkijonona mikä 'väri' taulukonTulkintaSivuiksi-taulukossa on eli minkä värinen
      * sivu tietyllä kuution paikalla on
@@ -421,5 +378,26 @@ public class RubikinKuutio{
     public Color mikaVariOnPaikalla(int mikaSivu, int rivilla, int sarakkeella){
         return Color.decode(this.mikaMerkkijonoOnPaikalla(mikaSivu, rivilla, sarakkeella));
     }
+    
+    public String palautaStringKuutio(){
+        StringBuilder kuutionRakentaja = new StringBuilder();
+            kuutionRakentaja.append(tulostaSivu(0));
+            for(int i = 0; i<3;i++){
+            for(int mikaSivu=1; mikaSivu<=3; mikaSivu++){
+                for(int a=0; a<3; a++){
+                kuutionRakentaja.append(this.taulukonTulkintaKuutionSivuiksi[mikaSivu][i][a]);
+                }
+            }
+                kuutionRakentaja.append('\n');
+            }
+            kuutionRakentaja.append(tulostaSivu(4));
+            kuutionRakentaja.append(tulostaSivu(5));
+            
+        return kuutionRakentaja.toString();
+    }
+    
+    public String[][][] palautaTaulukonTulkintaSivuiksi(){
+    return this.taulukonTulkintaKuutionSivuiksi;
+}
     
 }

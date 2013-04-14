@@ -2,11 +2,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package rubik_oht.kuutiot;
+package kayttoliittyma;
 
 import java.awt.Component;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import rubik_oht.kuutiot.RubikinKuutio;
 
 public class NappaimistonKuuntelija implements KeyListener {
 
@@ -22,17 +23,17 @@ public class NappaimistonKuuntelija implements KeyListener {
     public void keyPressed(KeyEvent e) {
         
         if (e.getKeyCode() == KeyEvent.VK_Y || e.getKeyCode() == KeyEvent.VK_0){
-            kuutio.kaannaYla();
+            kuutio.kaannaMyotaTaiVastaPaivaan(1, 0);
         } else if (e.getKeyCode() == KeyEvent.VK_V || e.getKeyCode() == KeyEvent.VK_1) {
-            kuutio.kaannaVasen();
+            kuutio.kaannaMyotaTaiVastaPaivaan(1, 1);
         } else if (e.getKeyCode() == KeyEvent.VK_E || e.getKeyCode() == KeyEvent.VK_2) {
-            kuutio.kaannaEtu();
+            kuutio.kaannaMyotaTaiVastaPaivaan(1, 2);
         } else if (e.getKeyCode() == KeyEvent.VK_O || e.getKeyCode() == KeyEvent.VK_3) {
-            kuutio.kaannaOikea();
+            kuutio.kaannaMyotaTaiVastaPaivaan(1, 3);
         } else if (e.getKeyCode() == KeyEvent.VK_A || e.getKeyCode() == KeyEvent.VK_4) {
-            kuutio.kaannaAla();
+            kuutio.kaannaMyotaTaiVastaPaivaan(1, 4);
         } else if (e.getKeyCode() == KeyEvent.VK_T || e.getKeyCode() == KeyEvent.VK_5) {
-            kuutio.kaannaTaka();
+            kuutio.kaannaMyotaTaiVastaPaivaan(1, 5);
         }
         component.repaint();
         }

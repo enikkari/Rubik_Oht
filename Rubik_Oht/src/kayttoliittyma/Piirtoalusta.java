@@ -74,6 +74,12 @@ public class Piirtoalusta extends JPanel {
         
         }
         
+        graphics.setColor(Color.BLACK);
+        graphics.drawString("0", 150, 145);
+        graphics.drawString("1 2 3", 140, 160);
+        graphics.drawString("4", 150, 175);
+        graphics.drawString("5", 150, 190);
+        
     }
     
     
