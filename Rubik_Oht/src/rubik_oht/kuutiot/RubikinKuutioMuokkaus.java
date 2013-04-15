@@ -24,10 +24,10 @@ import rubik_oht.palikat.Palikka;
  */
 public class RubikinKuutioMuokkaus {
 
-    public KulmaPalikka[] kulmaPalikoidenPaikat;
+    private KulmaPalikka[] kulmaPalikoidenPaikat;
     private ReunaPalikka[] reunaPalikoidenPaikat;
     private KeskiPalikka[] keskiPalikoidenPaikat;
-    public PalikkaJaSivu[][][] taulukonTulkintaKuutionSivuiksi;
+    private PalikkaJaSivu[][][] taulukonTulkintaKuutionSivuiksi;
     private String yla; //sivujen värit
     private String vasen;
     private String etu;
