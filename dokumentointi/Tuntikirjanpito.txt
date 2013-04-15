@@ -23,3 +23,5 @@ Vielä pitää piirtää luokkakaavioita ja tehdä testejä ja ratkaista miten k
      +~1h Luokkakaavioihin tutustumista. Uuden luokkakaavion piirtäminen.
 
 14.4. ~3h Testien tekemistä. Taulukkojen vertailun aiheuttamien ongelmien kanssa paiseilua.
+
+15.4 2.5h kuutin kääntelytestien loppuun tekeminen
