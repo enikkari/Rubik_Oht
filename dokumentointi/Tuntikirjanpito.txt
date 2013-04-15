@@ -24,4 +24,6 @@ Vielä pitää piirtää luokkakaavioita ja tehdä testejä ja ratkaista miten k
 
 14.4. ~3h Testien tekemistä. Taulukkojen vertailun aiheuttamien ongelmien kanssa paiseilua.
 
-15.4 2.5h kuutin kääntelytestien loppuun tekeminen
+15.4 2.5h kuution kääntelytestien loppuun tekeminen
+     +3.5h  yritän toteuttaa parempaa ohjelmalogiikkaa RubikinKuutioMuokkaus -luokassa
+

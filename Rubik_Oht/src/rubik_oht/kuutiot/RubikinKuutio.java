@@ -24,6 +24,7 @@ public class RubikinKuutio{
     
     private String[][][] taulukonTulkintaKuutionSivuiksi;
     
+    
     private String yla; //sivujen värit
     private String vasen;
     private String etu;
