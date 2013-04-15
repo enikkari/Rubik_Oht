@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package kayttoliittyma;
+package rubik_oht.kayttoliittyma;
 
 import java.awt.Component;
 import java.awt.event.KeyEvent;

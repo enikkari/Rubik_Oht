@@ -4,7 +4,7 @@ package rubik_oht;
 import rubik_oht.kuutiot.RubikinKuutio;
 import java.util.*;
 import javax.swing.SwingUtilities;
-import kayttoliittyma.RubikKayttoliittyma;
+import rubik_oht.kayttoliittyma.RubikKayttoliittyma;
 
 public class Rubik_Oht {
 

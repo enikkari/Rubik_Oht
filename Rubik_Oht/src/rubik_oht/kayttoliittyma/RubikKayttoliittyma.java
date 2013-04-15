@@ -1,4 +1,4 @@
-package kayttoliittyma;
+package rubik_oht.kayttoliittyma;
 
 import java.awt.*;
 import javax.swing.*;
