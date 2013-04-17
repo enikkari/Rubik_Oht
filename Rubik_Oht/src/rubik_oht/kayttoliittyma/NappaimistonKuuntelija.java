@@ -1,6 +1,5 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * NappaimistonKuuntelija ottaa komentoja näppäimistöltä.
  */
 package rubik_oht.kayttoliittyma;
 
