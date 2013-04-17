@@ -111,7 +111,9 @@ public class RubikinKuutioMuokkaus {
         PalikkaJaSivu uusi = new PalikkaJaSivu(palikka, sivu);
         return uusi;
     }
-
+/*
+ * Luo uudet PalikkaJaSivu olennot nykyisen taulukon mukaan
+ */
     private void taytaSivu(int mikaSivu, int[][] palikanIndeksitJaSivut) {
         PalikkaJaSivu p00 = luoPalikkaJaSivu('k', palikanIndeksitJaSivut[0][0], palikanIndeksitJaSivut[0][1]);
         PalikkaJaSivu p01 = luoPalikkaJaSivu('r', palikanIndeksitJaSivut[1][0], palikanIndeksitJaSivut[1][1]);
@@ -138,7 +140,7 @@ public class RubikinKuutioMuokkaus {
         int[][] vasenSivu = new int[][]{{0, 3}, {1, 2}, {2, 2}, {4, 2}, {1, 1}, {5, 2}, {4, 2}, {8, 2}, {5, 3}};
         int[][] etuSivu =   new int[][]{{2, 1}, {3, 1}, {3, 1}, {5, 1}, {2, 1}, {6, 1}, {5, 1}, {9, 1}, {6, 1}};
         int[][] oikeaSivu = new int[][]{{3, 3}, {2, 2}, {1, 2}, {6, 2}, {3, 1}, {7, 2}, {6, 2}, {10, 2}, {7, 3}};
-        int[][] alaSivu =   new int[][]{{5, 2}, {9, 2}, {6, 3}, {8, 1}, {4, 1}, {1, 1}, {4, 3}, {11, 2}, {7, 2}};
+        int[][] alaSivu =   new int[][]{{5, 2}, {9, 2}, {6, 3}, {8, 1}, {4, 1}, {10, 1}, {4, 3}, {11, 2}, {7, 2}};
         int[][] takaSivu =  new int[][]{{4, 1}, {11, 1}, {7, 1}, {4, 1}, {5, 1}, {7, 1}, {0, 1}, {0, 1}, {1, 1}};
         taytaSivu(0, ylaSivu);
         taytaSivu(1, vasenSivu);
@@ -158,7 +160,7 @@ public class RubikinKuutioMuokkaus {
         }
     }
 
-    public String tulostaSivu(int mikaSivu) {
+    private String tulostaSivu(int mikaSivu) {
         StringBuilder sivuRakentaja = new StringBuilder();
         for (int i = 0; i < 3; i++) {
             sivuRakentaja.append("   ");
@@ -225,6 +227,7 @@ public class RubikinKuutioMuokkaus {
 
         return tulkintaStringTaulukkona;
     }
+    
     /**
      * Metodi kääntää haluttua sivua haluttuun suuntaan
      *
@@ -260,20 +263,54 @@ public class RubikinKuutioMuokkaus {
 //        }
 //    }
 //    
-//     private void kaannaEtu(){
-//        this.vaihdaKulmapalikkojenPaikat(2, 3, 6, 5);
-//        this.vaihdaReunapalikoidenPaikat(3,6,9,5);
-//       this.paivitaTaulukonTulkintaKuutionSivuiksi();
-//    }
-//    private void kaannaTaka(){
-//        this.vaihdaKulmapalikkojenPaikat(4,7,1,0);
-//        this.vaihdaReunapalikoidenPaikat(11,7,0,4);
-//       this.paivitaTaulukonTulkintaKuutionSivuiksi();
-//    }
-//    private void kaannaYla(){
-//        this.vaihdaKulmapalikkojenPaikat(0,1,3,2);
-//        this.vaihdaReunapalikoidenPaikat(0,2,3,1);
+    /**
+     * etu ja taka sivut ovat siinä mielessä symmetriset, että palikoita ei tarvitse kääntää
+     * niitä siirrettäessä
+     */
+     public void kaannaEtuTaiTaka(int mikaSivu){
+         if(mikaSivu==2){
+             this.vaihdaKulmapalikkojenPaikat(2, 3, 6, 5);
+             this.vaihdaReunapalikoidenPaikat(3,6,9,5);
+         }else if(mikaSivu==5){
+             this.vaihdaKulmapalikkojenPaikat(4,7,1,0);
+            this.vaihdaReunapalikoidenPaikat(11,7,0,4);
+         }
+        
+       this.paivitaTaulukonTulkintaKuutionSivuiksi();
+    }
+//    public void kaannaTaka(){
 //        
+//       this.paivitaTaulukonTulkintaKuutionSivuiksi();
+//    }
+    public void kaannaYlaTaiAla(int mikaSivu){
+        if(mikaSivu==0 || mikaSivu==4){
+        if(mikaSivu==0){
+        this.vaihdaKulmapalikkojenPaikat(0,1,3,2);
+        this.vaihdaReunapalikoidenPaikat(0,2,3,1);
+        }else if(mikaSivu==4){
+        this.vaihdaKulmapalikkojenPaikat(5,6,7,4);
+        this.vaihdaReunapalikoidenPaikat(9,10,11,8);
+        }
+        
+//        for(int rivi =0; rivi<3;rivi++){
+//            for(int sarake=0;sarake<3;sarake++){
+//                this.taulukonTulkintaKuutionSivuiksi[mikaSivu][0][0].haePalikka().kaannaVastapaivaan();
+//            }
+//        }
+//        
+        
+        this.taulukonTulkintaKuutionSivuiksi[mikaSivu][0][0].haePalikka().kaannaVastapaivaan();
+        this.taulukonTulkintaKuutionSivuiksi[mikaSivu][0][1].haePalikka().kaannaVastapaivaan();
+        this.taulukonTulkintaKuutionSivuiksi[mikaSivu][0][2].haePalikka().kaannaMyotapaivaan();
+        this.taulukonTulkintaKuutionSivuiksi[mikaSivu][1][0].haePalikka().kaannaVastapaivaan();
+        
+        this.taulukonTulkintaKuutionSivuiksi[mikaSivu][1][2].haePalikka().kaannaVastapaivaan();
+        this.taulukonTulkintaKuutionSivuiksi[mikaSivu][2][0].haePalikka().kaannaVastapaivaan();
+        this.taulukonTulkintaKuutionSivuiksi[mikaSivu][2][1].haePalikka().kaannaVastapaivaan();
+        this.taulukonTulkintaKuutionSivuiksi[mikaSivu][2][2].haePalikka().kaannaMyotapaivaan();
+        }
+//        this.taulukonTulkintaKuutionSivuiksi[mikaSivu][0][0].haePalikka().kaannaMyotapaivaan();
+        
 //        this.kaannaKulmapalikkaa(0, 2,3,1);
 //        this.kaannaKulmapalikkaa(1, 3,1,2);
 //        this.kaannaKulmapalikkaa(3, 2,3,1);
@@ -283,37 +320,10 @@ public class RubikinKuutioMuokkaus {
 //        this.kaannaReunapalikkaa(2);
 //        this.kaannaReunapalikkaa(3);
 //        this.kaannaReunapalikkaa(1);
-//       
-//       this.paivitaTaulukonTulkintaKuutionSivuiksi();
-//    }
-//    private void kaannaVasen(){
-//        this.vaihdaKulmapalikkojenPaikat(0,2,5,4);
-//        this.vaihdaReunapalikoidenPaikat(1,5,8,4);
-//       
-//        this.kaannaKulmapalikkaa(0,3,1,2);
-//        this.kaannaKulmapalikkaa(2,2,3,1);
-//        this.kaannaKulmapalikkaa(5,3,1,2);
-//        this.kaannaKulmapalikkaa(4,2,3,1);
-//       
-//       //reunapalikoiden asennot pysyvät tässä siirrossa samoina
-//       
-//       this.paivitaTaulukonTulkintaKuutionSivuiksi();
-//    }
-//    private void kaannaOikea(){
-//        this.vaihdaKulmapalikkojenPaikat(3,1,7,6);
-//        this.vaihdaReunapalikoidenPaikat(2,7,10,6);
-//       
-//        this.kaannaKulmapalikkaa(3,3,1,2);
-//        this.kaannaKulmapalikkaa(1,2,3,1);
-//        this.kaannaKulmapalikkaa(7,3,1,2);
-//        this.kaannaKulmapalikkaa(6,2,3,1);
-//       
-//       //reunapalikoiden asennot pysyvät tässä siirrossa samoina
-//       
-//       this.paivitaTaulukonTulkintaKuutionSivuiksi();
-//    }
-//    
-//    private void kaannaAla(){
+       
+       this.paivitaTaulukonTulkintaKuutionSivuiksi();
+    }
+    //    private void kaannaAla(){
 //        this.vaihdaKulmapalikkojenPaikat(5,6,7,4);
 //        this.vaihdaReunapalikoidenPaikat(9,10,11,8);
 //        
@@ -329,31 +339,60 @@ public class RubikinKuutioMuokkaus {
 //       
 //       this.paivitaTaulukonTulkintaKuutionSivuiksi();
 //    }
+//    private void kaannaVasen(){
+//        this.vaihdaKulmapalikkojenPaikat(0,2,5,4);
+//        this.vaihdaReunapalikoidenPaikat(1,5,8,4);
+//       
+//        this.kaannaKulmapalikkaa(0,3,1,2);
+//        this.kaannaKulmapalikkaa(2,2,3,1);
+//        this.kaannaKulmapalikkaa(5,3,1,2);
+//        this.kaannaKulmapalikkaa(4,2,3,1);
+//       
+//       reunapalikoiden asennot pysyvät tässä siirrossa samoina
+//       
+//       this.paivitaTaulukonTulkintaKuutionSivuiksi();
+//    }
+//    private void kaannaOikea(){
+//        this.vaihdaKulmapalikkojenPaikat(3,1,7,6);
+//        this.vaihdaReunapalikoidenPaikat(2,7,10,6);
+//       
+//        this.kaannaKulmapalikkaa(3,3,1,2);
+//        this.kaannaKulmapalikkaa(1,2,3,1);
+//        this.kaannaKulmapalikkaa(7,3,1,2);
+//        this.kaannaKulmapalikkaa(6,2,3,1);
+//       
+//       reunapalikoiden asennot pysyvät tässä siirrossa samoina
+//       
+//       this.paivitaTaulukonTulkintaKuutionSivuiksi();
+//    }
 //    
-////    private void vaihdaKulmapalikkojenPaikat(int palikanNumero1, int palikanNumero2, int palikanNumero3, int palikanNumero4){
-////       PalikkaJaAsento vanhaKulma1 = this.kulmaPalikoidenPaikat[palikanNumero1];
-////       PalikkaJaAsento vanhaKulma2 = this.kulmaPalikoidenPaikat[palikanNumero2];
-////       PalikkaJaAsento vanhaKulma3 = this.kulmaPalikoidenPaikat[palikanNumero3];
-////       PalikkaJaAsento vanhaKulma4 = this.kulmaPalikoidenPaikat[palikanNumero4];
-////       
-////       this.kulmaPalikoidenPaikat[palikanNumero1] = vanhaKulma4;
-////       this.kulmaPalikoidenPaikat[palikanNumero2] = vanhaKulma1;
-////       this.kulmaPalikoidenPaikat[palikanNumero3] = vanhaKulma2;
-////       this.kulmaPalikoidenPaikat[palikanNumero4] = vanhaKulma3;
-////    }
-////    
-////    private void vaihdaReunapalikoidenPaikat(int palikanNumero1, int palikanNumero2, int palikanNumero3, int palikanNumero4){
-////       PalikkaJaAsento vanhaReuna1 = this.reunaPalikoidenPaikat[palikanNumero1];
-////       PalikkaJaAsento vanhaReuna2 = this.reunaPalikoidenPaikat[palikanNumero2];
-////       PalikkaJaAsento vanhaReuna3 = this.reunaPalikoidenPaikat[palikanNumero3];
-////       PalikkaJaAsento vanhaReuna4 = this.reunaPalikoidenPaikat[palikanNumero4];
-////       
-////       this.reunaPalikoidenPaikat[palikanNumero1] = vanhaReuna4;
-////       this.reunaPalikoidenPaikat[palikanNumero2] = vanhaReuna1;
-////       this.reunaPalikoidenPaikat[palikanNumero3] = vanhaReuna2;
-////       this.reunaPalikoidenPaikat[palikanNumero4] = vanhaReuna3;
-////       
-////    }
+
+//    
+    private void vaihdaKulmapalikkojenPaikat(int palikanNumero1, int palikanNumero2, int palikanNumero3, int palikanNumero4){
+        
+       KulmaPalikka vanhaKulma1 = this.kulmaPalikoidenPaikat[palikanNumero1];
+       KulmaPalikka vanhaKulma2 = this.kulmaPalikoidenPaikat[palikanNumero2];
+       KulmaPalikka vanhaKulma3 = this.kulmaPalikoidenPaikat[palikanNumero3];
+       KulmaPalikka vanhaKulma4 = this.kulmaPalikoidenPaikat[palikanNumero4];
+     
+       this.kulmaPalikoidenPaikat[palikanNumero1] = vanhaKulma4;
+       this.kulmaPalikoidenPaikat[palikanNumero2] = vanhaKulma1;
+       this.kulmaPalikoidenPaikat[palikanNumero3] = vanhaKulma2;
+       this.kulmaPalikoidenPaikat[palikanNumero4] = vanhaKulma3;
+    }
+//    
+    private void vaihdaReunapalikoidenPaikat(int palikanNumero1, int palikanNumero2, int palikanNumero3, int palikanNumero4){
+       ReunaPalikka vanhaReuna1 = this.reunaPalikoidenPaikat[palikanNumero1];
+       ReunaPalikka vanhaReuna2 = this.reunaPalikoidenPaikat[palikanNumero2];
+       ReunaPalikka vanhaReuna3 = this.reunaPalikoidenPaikat[palikanNumero3];
+       ReunaPalikka vanhaReuna4 = this.reunaPalikoidenPaikat[palikanNumero4];
+       
+       this.reunaPalikoidenPaikat[palikanNumero1] = vanhaReuna4;
+       this.reunaPalikoidenPaikat[palikanNumero2] = vanhaReuna1;
+       this.reunaPalikoidenPaikat[palikanNumero3] = vanhaReuna2;
+       this.reunaPalikoidenPaikat[palikanNumero4] = vanhaReuna3;
+       
+    }
 //    
 //    private void kaannaKulmapalikkaa(int palikanIndeksi,int sivu1,int sivu2,int sivu3){
 //        this.kulmaPalikoidenPaikat[palikanIndeksi].muutaAsento(new int[] {sivu1, sivu2, sivu3});

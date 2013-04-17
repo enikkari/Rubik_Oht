@@ -17,7 +17,7 @@ public class Palikka {
         this.Nimi = Nimi;
         this.vari = new String[KuinkaMontaSivuaPalikassaOn];
     }
-    /*
+    /**
      * muuttaa palikan varien indeksöintiä niin että kaikki palikat liikkuvat 
      * yhden indeksin eteenpäin ja viimeinen palikka hyppää ensimmäisen paikalle
      */
@@ -29,7 +29,7 @@ public class Palikka {
         }
         this.vari[0] = vanhaVari[vari.length - 1];
     }
-    /*
+    /**
      * muuttaa palikan värien indeksöintiä niin että kaikki palikat liikkuvat 
      * yhden indeksin taaksepäin ja ensimmäinen palikka hyppää viimeisen paikalle
      */

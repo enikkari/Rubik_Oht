@@ -27,3 +27,5 @@ Vielä pitää piirtää luokkakaavioita ja tehdä testejä ja ratkaista miten k
 15.4 2.5h kuution kääntelytestien loppuun tekeminen
      +3.5h  yritän toteuttaa parempaa ohjelmalogiikkaa RubikinKuutioMuokkaus -luokassa
 
+17.4. 3h Refaktoroin alkuperäistä koodia
+
