@@ -1,13 +1,14 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package rubik_oht.kayttoliittyma;
 
 import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JPanel;
 import rubik_oht.kuutiot.RubikinKuutio;
+
+/**
+ * Piirtoalusta piirtää kuvan RubikinKuutiosta
+ */
 
 public class Piirtoalusta extends JPanel {
 

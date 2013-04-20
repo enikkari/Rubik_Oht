@@ -4,7 +4,7 @@ package rubik_oht.palikat;
  * Palikka-luokka kuvaa palikkaa, joista Rubikin kuutio muodostuu. Tavallisessa
  * Rubikin kuutiossa on reuna- ja kulmapalikoita
  *
- * "Keskipalikoita" ei ole tavallisessa rubikin kuutiossa (3x3-kuutiossa), sillä
+ * "Keskipalikoita" ei ole tavallisessa rubikin kuutiossa (3x3x3-kuutiossa), sillä
  * keskellä olevat palikat pysyvät koko ajan toisiinsa nähden paikoillaan.
  */
 public class Palikka {

@@ -1,9 +1,5 @@
 
 package rubik_oht.palikat;
-/**
- *
- * @author eevanikkari
- */
 
     /**Kulmapalikka on rubikin kuution kulmassa oleva palikka.
     *Siinä on kolme sivua ja siis kolme eri väriä.

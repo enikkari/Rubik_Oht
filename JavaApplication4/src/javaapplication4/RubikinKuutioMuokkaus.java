@@ -1,4 +1,4 @@
-package rubik_oht.kuutiot;
+package javaapplication4;
 
 import java.awt.Color;
 import java.io.IOException;
@@ -10,7 +10,7 @@ import rubik_oht.palikat.KulmaPalikka;
 import rubik_oht.palikat.Palikka;
 
 /**
- * Kokeillaan vaihtoehtoista
+ * Vaihtoehtoista ohjelmointilogiikkaa, jota ei kuitenkaan käytetä
  *
  * Kuutiolla on kuusi sivua, joiden nimet ovat yla, vasen, etu, oikea, ala ja
  * taka

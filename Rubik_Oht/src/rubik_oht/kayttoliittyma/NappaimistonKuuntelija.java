@@ -1,12 +1,15 @@
-/*
- * NappaimistonKuuntelija ottaa komentoja näppäimistöltä.
- */
+
 package rubik_oht.kayttoliittyma;
 
 import java.awt.Component;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import rubik_oht.kuutiot.RubikinKuutio;
+
+/**
+ * NappaimistonKuuntelija ottaa komentoja näppäimistöltä.
+ * Se tunnistaa, jos shift on alhaalla.
+ */
 
 public class NappaimistonKuuntelija implements KeyListener {
 

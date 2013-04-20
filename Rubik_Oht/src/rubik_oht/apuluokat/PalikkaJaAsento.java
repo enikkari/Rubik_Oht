@@ -2,15 +2,10 @@
 package rubik_oht.apuluokat;
 
 import rubik_oht.palikat.Palikka;
-/**
-     * PalikkaJaAsento on apuluokka, jonka avulla saadaan sopivanlaisia taulukko-
+/** PalikkaJaAsento on apuluokka, jonka avulla saadaan sopivanlaisia taulukko-
      * olentoja Kuutioihin. Se säilöö Palikan ja tiedon sen asennosta eli sivujen järjestyksestä.
      */
 
-/**
- *
- * @author eevanikkari
- */
 public class PalikkaJaAsento {
     
     private Palikka palikka;
@@ -28,7 +23,10 @@ public class PalikkaJaAsento {
         this.palikka=palikka;
         this.asento=sivujenJarjestys;
     }
-    
+    /**
+     * Muuttaa asennon uuden järjestyksen mukaiseksi
+     * esim. {3,2,1} -taulukko muuttaa järjestyksen siten että vanhan asennon 0. ja 2. indeksi vaihtavat paikkaa
+     */
     public void muutaAsento(int[] uusiJarjestys){
         int[] vanhaAsento = new int[asento.length];
         for(int a =0; a<asento.length; a++){

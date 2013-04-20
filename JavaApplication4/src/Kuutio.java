@@ -1,5 +1,5 @@
 
-package rubik_oht.kuutiot;
+
 
 import rubik_oht.apuluokat.PalikkaJaAsento;
 import java.util.*;

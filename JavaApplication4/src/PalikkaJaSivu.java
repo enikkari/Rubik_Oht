@@ -2,7 +2,7 @@
  * Apuluokka
  * Pari, jossa on palikka ja numero, joka kertoo mikä palikan sivu on kysessä.
  */
-package rubik_oht.apuluokat;
+
 
 import rubik_oht.palikat.*;
 
