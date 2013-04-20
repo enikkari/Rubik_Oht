@@ -29,3 +29,4 @@ Vielä pitää piirtää luokkakaavioita ja tehdä testejä ja ratkaista miten k
 
 17.4. 3h Refaktoroin alkuperäistä koodia
 
+20.4. ~2h JavaDocin viimeistelyä ja .jar tiedoston luominen. Käyttöohjeiden ja rakennekuvauksen kirjoittaminen.
