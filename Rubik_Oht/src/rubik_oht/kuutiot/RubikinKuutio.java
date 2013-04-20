@@ -6,8 +6,8 @@ import rubik_oht.palikat.KulmaPalikka;
 import rubik_oht.palikat.ReunaPalikka;
 
 /**
- * RubikinKuutio on olio, joka sisältää tiedot Palikka -olentojen sijainneista ja
- * asennoista kuutiossa.
+ * RubikinKuutio on olio, joka sisältää tiedot Palikka -olentojen sijainneista
+ * ja asennoista kuutiossa.
  *
  * Kuutiolla on kuusi sivua, joiden nimet ovat yla, vasen, etu, oikea, ala ja
  * taka.
@@ -64,7 +64,7 @@ public class RubikinKuutio {
     }
 
     /**
-     * Luodaan palikat oikean värisinä taulukkoon niin että kuutio on alussa
+     * Luo palikat oikean värisinä taulukkoon niin että kuutio on alussa
      * ratkaistuna
      */
     private void taytaKuutio() {
@@ -82,6 +82,12 @@ public class RubikinKuutio {
         this.paivitaTaulukonTulkintaKuutionSivuiksi();
     }
 
+    /**
+     * Metodille annetaan lista, jossa on kahdeksan kolmen string olennon
+     * listaa, joiden perusteella luodaan kulmapalikat kuutioon siten että
+     * ensimmäisellä paikalla olevat värit tulevat KulmpaPalikka K0:n sivujen
+     * väreiksi annetussa järjestyksessä ja seuraavat K1:n jne.
+     */
     private void luoKulmapalikatJaAsetaNePaikalleAsentoon(String[][] varit) {
         for (int palikka = 0; palikka < 8; palikka++) {
             this.kulmaPalikoidenPaikat[palikka] =
@@ -89,6 +95,12 @@ public class RubikinKuutio {
         }
     }
 
+    /**
+     * Metodille annetaan lista, jossa on 12 kahden string olennon listaa,
+     * joiden perusteella luodaan reunapalikat kuutioon siten että ensimmäisellä
+     * paikalla olevat värit tulevat ReunaPalikka K0:n sivujen väreiksi
+     * annetussa järjestyksessä ja seuraavat K1:n jne.
+     */
     private void luoReunapalikatJaAsetaNePaikalleAsentoon(String[][] varit) {
         for (int palikka = 0; palikka < varit.length; palikka++) {
             this.reunaPalikoidenPaikat[palikka] =
@@ -111,6 +123,16 @@ public class RubikinKuutio {
         this.paivitaSivu(5, new int[][]{{4, 1}, {11, 1}, {7, 1}, {4, 1}, {7, 1}, {0, 1}, {0, 1}, {1, 1}});
     }
 
+    /**
+     * Metodille annetaan 7 alkion pituinen taulukko 2 int olennon taulukkoja
+     * Taulukon seitsemän alkiota kuvaavat kuution tietyllä sivulla olevia
+     * Palikoiden sivuja. Keskipalikan 'vari' tiedetään jo, joten sivuja on 7.
+     * Taulukon sisällä olevien taulukkojen 0. indeksi on Palikan indeksi ja 1.
+     * indeksi haluttu Palikan sivun numero.
+     *
+     * Metodi päivittää annettussa järjestyksessä halutulle sivulle halutun
+     * Palikan halutun 'varin'
+     */
     private void paivitaSivu(int mikaSivu, int[][] paikkaJaVari) {
         int indeksi = 0;
         for (int rivi = 0; rivi < 3; rivi++) {
@@ -147,6 +169,9 @@ public class RubikinKuutio {
         }
     }
 
+    /**
+     * Metodi kääntää haluttua sivua myötäpäivään
+     */
     private void kaannaSivu(int mikaSivu) {
         if (mikaSivu == 0) {
             this.kaannaYla();
@@ -213,6 +238,10 @@ public class RubikinKuutio {
         this.vaihdaReunapalikoidenPaikat(reunapalikat[0], reunapalikat[1], reunapalikat[2], reunapalikat[3]);
     }
 
+    /**
+     * Vaihtaa haluttujen KulmaPalikoiden indeksien perusteella Palikoiden pikat
+     * siten että edellinen Palikka hyppää aina seuraavan paikalle.
+     */
     private void vaihdaKulmapalikkojenPaikat(int palikanNumero1, int palikanNumero2, int palikanNumero3, int palikanNumero4) {
         PalikkaJaAsento vanhaKulma1 = this.kulmaPalikoidenPaikat[palikanNumero1];
         PalikkaJaAsento vanhaKulma2 = this.kulmaPalikoidenPaikat[palikanNumero2];
@@ -225,6 +254,10 @@ public class RubikinKuutio {
         this.kulmaPalikoidenPaikat[palikanNumero4] = vanhaKulma3;
     }
 
+    /**
+     * Vaihtaa haluttujen ReunaPalikoiden indeksien perusteella Palikoiden pikat
+     * siten että edellinen Palikka hyppää aina seuraavan paikalle.
+     */
     private void vaihdaReunapalikoidenPaikat(int palikanNumero1, int palikanNumero2, int palikanNumero3, int palikanNumero4) {
         PalikkaJaAsento vanhaReuna1 = this.reunaPalikoidenPaikat[palikanNumero1];
         PalikkaJaAsento vanhaReuna2 = this.reunaPalikoidenPaikat[palikanNumero2];
@@ -238,12 +271,18 @@ public class RubikinKuutio {
 
     }
 
+    /**
+     * Kääntää haluttujen KulmpaPalikoiden asentoa niin että jokainen väri hyppää seuraavan paikalle
+     */
     private void kaannaKulmapalikatMyotaPaivaan(int[] palikat) {
         for (int i = 0; i < palikat.length; i++) {
             this.kulmaPalikoidenPaikat[palikat[i]].muutaAsento(new int[]{3, 1, 2});
         }
 
     }
+    /**
+     * Kääntää haluttujen KulmpaPalikoiden asentoa niin että jokainen väri hyppää edellisen paikalle
+     */
 
     private void kaannaKulmapalikatVastaPaivaan(int[] palikat) {
         for (int i = 0; i < palikat.length; i++) {
@@ -251,6 +290,9 @@ public class RubikinKuutio {
         }
     }
 
+    /**
+     * Vaihtaa halutut ReunaPalikat niiden toiseen mahdolliseen asentoon
+     */
     private void kaannaReunapalikat(int[] palikat) {
         for (int i = 0; i < palikat.length; i++) {
             this.reunaPalikoidenPaikat[palikat[i]].muutaAsento(new int[]{2, 1});
